@@ -1,0 +1,43 @@
+/* Note: App layout styling here */
+.sidebar {
+    background-image: url(../assets/images/sidebar.png);
+    /* background-image: url(../assets/images/milkia-logo.png); */
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.customAppBarStyle {
+    /* background: linear-gradient(90deg, #1558ac 23%, #1792c8 58%, #58c3ea 99%); */
+    background: #F4F4F4;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.drawerList {
+    color: black;
+}
+
+.drawerIcons {
+    color: black;
+}
+
+.userDetailSection {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color: black;
+}
+
+.userName {
+    text-transform: capitalize;
+    padding-right: 10px;
+}
+
+/* Note: Handeling responsiveness for mediums and small devices */
+@media screen and (max-width: 500px) {
+    .userInfoSection {
+        display: none;
+    }
+}
