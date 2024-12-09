@@ -1,4 +1,4 @@
-.sidebar {
+/* .sidebar {
   background-color: var(--theme-blue);
   color: var(--white);
 }
@@ -40,4 +40,87 @@
 .menuTitleActive {
   display: block;
   list-style: none;
+} */
+
+
+.sidebar {
+  width: 250px;
+  background-color: #5fc9d7;
+  padding: 10px;
+  color: #fff;
+  font-family: Arial, sans-serif;
+}
+
+.searchBox {
+  margin-bottom: 20px;
+}
+
+.searchInput {
+  width: 100%;
+  padding: 8px;
+  border-radius: 4px;
+  border: none;
+  outline: none;
+}
+
+.menu {
+  margin-bottom: 10px;
+}
+
+.menuHeader {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  padding: 10px;
+  background-color: #48a4b3;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+.menuHeader:hover {
+  background-color: #3c8d9c;
+}
+
+.icon {
+  margin-right: 10px;
+}
+
+.title {
+  font-weight: bold;
+}
+
+.subMenu {
+  margin-top: 10px;
+  margin-left: 20px;
+  list-style: none;
+  /* padding: 0; */
+  border-left: 0.5px solid white;
+}
+
+.subMenuItem {
+  position: relative;
+  /* margin-bottom: 5px; */
+  margin-top: 10px;
+}
+.subMenuItem::before {
+  content: "";
+  position: absolute;
+  left: -28px;
+  bottom: 0;
+  width: 15px;
+  height: 0.5px;
+  background-color: #fff;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+
+.link {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.link:hover {
+  color: #cce7ea;
 }
