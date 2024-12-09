@@ -19,6 +19,7 @@
     "dayjs": "^1.11.13",
     "material-react-table": "^3.0.1",
     "mdb-react-ui-kit": "^9.0.0",
+    "motion": "^11.13.1",
     "next": "14.2.13",
     "react": "^18",
     "react-activity": "^2.1.3",

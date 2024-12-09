@@ -40,6 +40,7 @@ import { menuList } from "./menu";
 import Link from "next/link";
 import styles from "../../styles/sidebar.module.css";
 import { useRouter } from "next/navigation";
+import { motion } from "motion/react";
 // import "../../styles/colors.css";
 // import Link from "next/link";
 
@@ -97,7 +98,16 @@ const SidebarMenu = () => {
             <div className={styles.title}>{menu.title}</div>
           </div>
           {activeMenu === menu.id && (
-            <ul className={styles.subMenu}>
+            <motion.ul
+              initial={{ height: 0, opacity: 0 }}
+              animate={{ height: "auto", opacity: 1 }}
+              exit={{ height: 0, opacity: 0 }}
+              transition={{
+                duration: 0.3,
+                ease: "linear",
+              }}
+              className={styles.subMenu}
+            >
               {menu.items.map((item, index) => (
                 <Link key={index} href={item.path} className={styles.link}>
                   <li
@@ -109,7 +119,7 @@ const SidebarMenu = () => {
                   </li>
                 </Link>
               ))}
-            </ul>
+            </motion.ul>
           )}
         </div>
       ))}
