@@ -22,7 +22,7 @@ export const menuList = [
     title: "Builders and Developers",
     icon: <PiUsersThreeFill />,
     items: [
-      { label: "Add New Builders", path: "/add-new-builders" },
+      { label: "Add New Builder", path: "/add-new-builder" },
       { label: "List of Builders", path: "/list-of-builders" },
     ],
   },
@@ -54,7 +54,7 @@ export const menuList = [
       { label: "Add Payment", path: "/add-payment" },
       { label: "Search History", path: "/search-history" },
       { label: "Agent Payouts", path: "/agent-payouts" },
-      { label: "Payouts History", path: "/payouts-history" },
+      { label: "Payouts History", path: "/payout-history" },
       { label: "Export Payouts", path: "/export-payouts" },
     ],
   },
