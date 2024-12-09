@@ -1,0 +1,24 @@
+.sidebar {
+  background-color: var(--theme-blue);
+  color: var(--white);
+}
+.sidebar a {
+  color: var(--white);
+  text-decoration: none;
+  padding: 10px;
+}
+.menuList {
+  list-style: none;
+}
+.menu {
+  
+}
+.menuTitle {
+  cursor: pointer;
+}
+.menuItems {
+  display: none;
+}
+.menuTitleActive {
+  display: block;
+}

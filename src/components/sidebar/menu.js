@@ -1,6 +1,6 @@
 import { IoIosSpeedometer } from "react-icons/io";
 import { PiUsersThreeFill } from "react-icons/pi";
-import { LuChartNoAxesCombined } from "react-icons/lu";
+import { FaChartLine } from "react-icons/fa6";
 import { BiBarChartSquare } from "react-icons/bi";
 import { MdOutlinePayments } from "react-icons/md";
 import { BsJournalBookmarkFill } from "react-icons/bs";
@@ -29,7 +29,7 @@ export const menuList = [
   {
     id: 3,
     title: "Dealers (Partners)",
-    icon: <LuChartNoAxesCombined />,
+    icon: <FaChartLine />,
     items: [
       { label: "Add New Dealer", path: "/add-new-dealer" },
       { label: "Registered Clients", path: "/registered-clients" },
