@@ -39,11 +39,13 @@ import React, { useState } from "react";
 import { menuList } from "./menu";
 import Link from "next/link";
 import styles from "../../styles/sidebar.module.css";
+import { useRouter } from "next/navigation";
 // import "../../styles/colors.css";
 // import Link from "next/link";
 
 const SidebarMenu = () => {
   const [activeMenu, setActiveMenu] = useState(null);
+  const router = useRouter();
 
   const toggleMenu = (id) => {
     setActiveMenu(activeMenu === id ? null : id);
@@ -97,11 +99,15 @@ const SidebarMenu = () => {
           {activeMenu === menu.id && (
             <ul className={styles.subMenu}>
               {menu.items.map((item, index) => (
-                <li key={index} className={styles.subMenuItem}>
-                  <a href={item.path} className={styles.link}>
+                <Link key={index} href={item.path} className={styles.link}>
+                  <li
+                    className={`${styles.subMenuItem} ${
+                      router.pathname === item.path ? styles.active : ""
+                    }`}
+                  >
                     {item.label}
-                  </a>
-                </li>
+                  </li>
+                </Link>
               ))}
             </ul>
           )}

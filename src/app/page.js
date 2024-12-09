@@ -33,6 +33,7 @@ import appRoutes from "@/routes/routes";
 import styles from "@/styles/AppLayout.module.css";
 import "./globals.css";
 import { Toaster } from "react-hot-toast";
+import SidebarMenu from "@/components/sidebar/SidebarMenu";
 
 const drawerWidth = 300;
 
@@ -92,7 +93,9 @@ const AppLayout = (props) => {
   const handleDrawerClose = () => setOpen(false);
 
   const handleDropdownToggle = (dropdownId) => {
-    setOpenDropdown((prevDropdown) => (prevDropdown === dropdownId ? null : dropdownId));
+    setOpenDropdown((prevDropdown) =>
+      prevDropdown === dropdownId ? null : dropdownId
+    );
   };
 
   const { authenticatedUser } = useSelector(({ authStates }) => authStates);
@@ -124,10 +127,7 @@ const AppLayout = (props) => {
   return (
     <Box sx={{ display: "flex", position: "relative" }}>
       <CssBaseline />
-      <Toaster
-        position="top-center"
-        reverseOrder={false}
-      />
+      <Toaster position="top-center" reverseOrder={false} />
 
       <AppBar position="fixed" open={open}>
         <Toolbar className={styles.customAppBarStyle}>
@@ -219,7 +219,8 @@ const AppLayout = (props) => {
 
         <Divider />
 
-        <List className={styles.drawerList}>
+        <SidebarMenu />
+        {/* <List className={styles.drawerList}>
           {routes?.map((item, index) => (
             <Link
               key={index}
@@ -317,7 +318,7 @@ const AppLayout = (props) => {
               </Collapse>
             </Link>
           ))}
-        </List>
+        </List> */}
       </Drawer>
 
       <Main style={{ width: "50%" }} open={open}>
