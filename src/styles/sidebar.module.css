@@ -3,22 +3,41 @@
   color: var(--white);
 }
 .sidebar a {
-  color: var(--white);
   text-decoration: none;
   padding: 10px;
+  color: var(--white);
 }
 .menuList {
   list-style: none;
+  position: relative;
+}
+.menuList::after {
+  content: "";
+  width: 2px;
+  display: block;
+  height: 100%;
+  background-color: white;
+  position: absolute;
+  top: 28px;
+  left: 44px;
+  margin-bottom: 10px;
 }
 .menu {
-  
+  color: white !important;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 .menuTitle {
   cursor: pointer;
+  color: var(--white);
 }
 .menuItems {
   display: none;
+  list-style: none;
 }
 .menuTitleActive {
   display: block;
+  list-style: none;
 }

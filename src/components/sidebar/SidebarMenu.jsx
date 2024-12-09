@@ -7,7 +7,8 @@ import Link from "next/link";
 const SidebarMenu = () => {
   const [openMenu, setOpenMenu] = useState(false);
   const openMenuLink = (e) => {
-    e.target.classList.toggle(styles.menuTitleActive);
+    setOpenMenu(!openMenu);
+    // e.target.classList.toggle(styles.menuTitleActive);
   };
   return (
     <div className={styles.sidebar}>
@@ -19,7 +20,7 @@ const SidebarMenu = () => {
               {menu.title}
             </span>
           </li>
-          <ul className={styles.menuItems}>
+          <ul className={openMenu ? styles.menuTitleActive : styles.menuItems}>
             {menu.items.map((item, index) => (
               <li key={index}>
                 <Link href={item.path}>{item.label}</Link>
