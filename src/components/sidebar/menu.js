@@ -13,8 +13,12 @@ export const menuList = [
     icon: <IoIosSpeedometer />,
     items: [
       { label: "Land", path: "/land" },
-      { label: "Building", path: "/building" },
+      { label: "Add Building", path: "/add-building" },
       { label: "Add Project", path: "/add-project" },
+      { label: "Add Properties", path: "/add-properties" },
+      { label: "Project List", path: "/project-list" },
+      { label: "Add Floor Plan", path: "/add-floor-plan" },
+      // { label: "Building", path: "/building" },
     ],
   },
   {
