@@ -27,7 +27,7 @@ const Land = () => {
     >
       {!showDetails && (
         <>
-          <Typography variant="h3" textAlign={"center"}>
+          <Typography variant="h3" textAlign={"center"} color="black">
             Land
           </Typography>
 
