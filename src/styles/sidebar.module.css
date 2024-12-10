@@ -77,14 +77,14 @@
   align-items: center;
   cursor: pointer;
   padding: 10px;
-  background-color: #48a4b3;
+  /* background-color: #48a4b3; */
   border-radius: 4px;
   transition: background-color 0.3s;
 }
 
-.menuHeader:hover {
+/* .menuHeader:hover {
   background-color: #3c8d9c;
-}
+} */
 
 .icon {
   margin-right: 10px;

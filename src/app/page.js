@@ -126,7 +126,7 @@ const AppLayout = (props) => {
 
   return (
     <Box sx={{ display: "flex", position: "relative" }}>
-      <CssBaseline />
+      {/* <CssBaseline /> */}
       <Toaster position="top-center" reverseOrder={false} />
 
       <AppBar position="fixed" open={open}>
@@ -189,7 +189,8 @@ const AppLayout = (props) => {
         open={open}
         PaperProps={{
           sx: {
-            backgroundColor: theme.colors._F4F4F4,
+            // backgroundColor: theme.colors._F4F4F4,
+            backgroundColor: "#5fc9d7",
             // backgroundImage: `url(${assetPaths.SideBar})`,
             // backgroundSize: 'contain',
             // backgroundRepeat: 'no-repeat',
@@ -204,7 +205,7 @@ const AppLayout = (props) => {
             src={assetPaths.milkiaAppLogo}
             alt="App Logo"
             // height={60}
-            width={100}
+            width={120}
             priority
           />
 

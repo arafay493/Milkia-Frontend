@@ -16,11 +16,12 @@
 }
 
 .drawerList {
-    color: black;
+    /* color: black; */
 }
 
 .drawerIcons {
-    color: black;
+    /* color: black; */
+    color: white;
 }
 
 .userDetailSection {

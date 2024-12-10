@@ -11,6 +11,11 @@ const AddProjectForm = () => {
       projectName: "",
       location: "",
       startPrice: "",
+      endPrice: "",
+      totalProjectArea: "",
+      projectType: "",
+      possessionDate: "",
+      launchDate: "",
     },
     onSubmit: (values) => {
       // alert(JSON.stringify(values, null, 2));
