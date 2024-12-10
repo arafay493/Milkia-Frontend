@@ -9,6 +9,8 @@ import sidebar from "@/assets/images/sidebar.png";
 import landResidentials from "@/assets/images/land_residential.png";
 import landCommercial from "@/assets/images/land_commercial.png";
 import landIndustrial from "@/assets/images/land_industrial.png";
+import buildingsResidentials from "@/assets/images/buildings_residential.png";
+import buildingsCommercial from "@/assets/images/buildings_commercial.png";
 
 const assetPaths = {
   _userIcon: userIcon,
@@ -18,6 +20,8 @@ const assetPaths = {
   landResidentials: landResidentials,
   landCommercial: landCommercial,
   landIndustrial: landIndustrial,
+  buildingsResidentials: buildingsResidentials,
+  buildingsCommercial: buildingsCommercial,
 };
 
 const icons = {

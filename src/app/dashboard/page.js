@@ -11,7 +11,7 @@ export default function Dashboard() {
   return (
     <>
       <div>
-        <SidebarMenu />
+        {/* <SidebarMenu /> */}
         <h1> Dashboard </h1>
       </div>
     </>
