@@ -8,7 +8,11 @@ import Image from "next/image";
 import { assetPaths } from "@/paths/path";
 import { cardData } from "./cardData";
 import { Stack } from "@mui/material";
-const LandCard = () => {
+const LandCard = ({ handleShowDetails, setShowTypeOfLand, setShowDetails }) => {
+  // const handleClick = () => {
+  //   setShowDetails(true);
+  //   setShowTypeOfLand()
+  // };
   return (
     <Stack
       direction={"row"}
@@ -18,7 +22,11 @@ const LandCard = () => {
       gap={4}
     >
       {cardData.map((card, index) => (
-        <Card sx={{ maxWidth: 345, padding: "10px" }} key={card.id}>
+        <Card
+          sx={{ maxWidth: 345, padding: "10px" }}
+          key={card.id}
+          onClick={() => handleShowDetails(card.title.toLowerCase())}
+        >
           <CardActionArea>
             <CardMedia width={"100%"}>
               <Image
