@@ -146,6 +146,26 @@ const ResidentialList = ({ setShowDetails, setShowTypeOfLand }) => {
             value={value}
             onChange={handleChange}
             aria-label="basic tabs example"
+            sx={{
+              "& .MuiTabs-indicator": {
+                backgroundColor: "#479ba4", // Change the indicator color
+              },
+              "& .MuiButtonBase-root": {
+                color: "black", // Default button text color
+                fontWeight: 600, // Set the font weight
+                fontSize: "14px", // Set the font size
+                textTransform: "none", // Optional: Prevent uppercase transformation
+              },
+              "& .MuiTab-root": {
+                color: "black", // Default tab text color
+                fontWeight: 600, // Set the font weight
+                fontSize: "14px", // Set the font size
+                textTransform: "none", // Optional: Prevent uppercase transformation
+              },
+              "& .Mui-selected": {
+                color: "#479ba4 !important", // Change the color of the selected tab text
+              },
+            }}
           >
             <Tab label="All" {...a11yProps(0)} />
             <Tab label="Plots" {...a11yProps(1)} />
@@ -192,17 +212,6 @@ const ResidentialList = ({ setShowDetails, setShowTypeOfLand }) => {
           </Stack>
         </CustomTabPanel>
       </Box>
-      {/* <Stack
-        direction={"row"}
-        flexWrap={"wrap"}
-        // justifyContent={"center"}
-        alignItems={"center"}
-        gap={2}
-        // sx={{marginBottom: "70px"}}
-        marginBottom={20}
-      >
-        {filteredList}
-      </Stack> */}
     </Card>
   );
 };

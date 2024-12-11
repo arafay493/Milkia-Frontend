@@ -8,9 +8,9 @@ import { Stack, Typography } from "@mui/material";
 import React, { useState } from "react";
 
 const Land = () => {
-  const [showDetails, setShowDetails] = useState(true);
+  const [showDetails, setShowDetails] = useState(false);
   const [showTypeOfLand, setShowTypeOfLand] = useState({
-    residential: true,
+    residential: false,
     commercial: false,
     industrial: false,
   });
