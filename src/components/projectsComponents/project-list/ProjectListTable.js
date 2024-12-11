@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   createColumnHelper,
   flexRender,
@@ -9,7 +9,6 @@ import {
 import styles from "../../../styles/project-list.module.css";
 import { Box } from "@mui/material";
 import Image from "next/image";
-
 const defaultData = [
   {
     firstName: "tanner",
@@ -37,81 +36,102 @@ const defaultData = [
   },
 ];
 
-const columnHelper = createColumnHelper();
-
-const columns = [
-  // Checkbox Column
-  columnHelper.display({
-    id: "select",
-    header: ({ table }) => (
-      <div className={styles.checkboxContainer}>
-        <input
-          type="checkbox"
-          onChange={(e) =>
-            e.target.checked
-              ? table.toggleAllRowsSelected(true)
-              : table.toggleAllRowsSelected(false)
-          }
-        />
-      </div>
-    ),
-    cell: ({ row }) => (
-      <div className={styles.checkboxContainer}>
-        <input
-          type="checkbox"
-          checked={row.isSelected}
-          onChange={() => row.toggleSelected()}
-          className={styles.checkboxContainer}
-        />
-      </div>
-    ),
-  }),
-  // ID Column
-  columnHelper.accessor("id", {
-    header: "ID",
-    cell: (info) => info.getValue(),
-  }),
-  columnHelper.accessor("firstName", {
-    cell: (info) => info.getValue(),
-    // footer: (info) => info.column.id,
-  }),
-  columnHelper.accessor("firstName", {
-    cell: (info) => info.getValue(),
-    // footer: (info) => info.column.id,
-  }),
-  columnHelper.accessor((row) => row.lastName, {
-    id: "lastName",
-    cell: (info) => <i>{info.getValue()}</i>,
-    header: () => <span>Last Name</span>,
-    // footer: (info) => info.column.id,
-  }),
-  columnHelper.accessor("age", {
-    header: () => "Age",
-    cell: (info) => info.renderValue(),
-    // footer: (info) => info.column.id,
-  }),
-  columnHelper.accessor("visits", {
-    header: () => <span>Visits</span>,
-    // footer: (info) => info.column.id,
-  }),
-  columnHelper.accessor("status", {
-    header: "Status",
-    // footer: (info) => info.column.id,
-  }),
-  columnHelper.accessor("progress", {
-    header: "Profile Progress",
-    // footer: (info) => info.column.id,
-  }),
-];
 const ProjectListTable = () => {
   const [data, _setData] = React.useState(() => [...defaultData]);
   const rerender = React.useReducer(() => ({}), {})[1];
+  const [selectedRows, setSelectedRows] = useState([]);
+  console.log(selectedRows);
+
+  const columnHelper = createColumnHelper();
+
+  const columns = [
+    // Checkbox Column
+    columnHelper.display({
+      id: "select",
+      header: ({ table }) => {
+        // const selectedRowsArray = table
+        //   .getSelectedRowModel()
+        //   .rows.map((row) => row.original);
+        // setSelectedRows(selectedRowsArray);
+        // console.log(table);
+        // console.log(table.getState().rowSelection);
+        // console.log(table.getSelectedRowModel().rows);
+        return (
+          <div className={styles.checkboxContainer}>
+            <input
+              type="checkbox"
+              checked={table.getIsAllRowsSelected()}
+              onChange={(e) =>
+                e.target.checked
+                  ? table.toggleAllRowsSelected(true)
+                  : table.toggleAllRowsSelected(false)
+              }
+            />
+          </div>
+        );
+      },
+      cell: ({ row }) => {
+        // console.log(row);
+        // console.log(row.getIsSelected());
+        return (
+          <div className={styles.checkboxContainer}>
+            <input
+              type="checkbox"
+              checked={row.getIsSelected()}
+              onChange={() => row.toggleSelected()}
+              className={styles.checkboxContainer}
+            />
+          </div>
+        );
+      },
+    }),
+    // ID Column
+    columnHelper.accessor("id", {
+      header: "ID",
+      cell: (info) => info.getValue(),
+    }),
+    columnHelper.accessor("firstName", {
+      cell: (info) => info.getValue(),
+      // footer: (info) => info.column.id,
+    }),
+    columnHelper.accessor((row) => row.lastName, {
+      id: "lastName",
+      cell: (info) => <i>{info.getValue()}</i>,
+      header: () => <span>Last Name</span>,
+      // footer: (info) => info.column.id,
+    }),
+    columnHelper.accessor("age", {
+      header: () => "Age",
+      cell: (info) => info.renderValue(),
+      // footer: (info) => info.column.id,
+    }),
+    columnHelper.accessor("visits", {
+      header: () => <span>Visits</span>,
+      // footer: (info) => info.column.id,
+    }),
+    columnHelper.accessor("status", {
+      header: "Status",
+      // footer: (info) => info.column.id,
+    }),
+    columnHelper.accessor("progress", {
+      header: "Profile Progress",
+      // footer: (info) => info.column.id,
+    }),
+  ];
 
   const table = useReactTable({
     data,
     columns,
     getCoreRowModel: getCoreRowModel(),
   });
+  // Watch for changes in the row selection state
+  useEffect(() => {
+    const selectedRowsArray = table
+      .getSelectedRowModel()
+      .rows.map((row) => row.original);
+
+    setSelectedRows(selectedRowsArray);
+  }, [table.getState().rowSelection]);
   return (
     <Box className="p-2" style={{ overflowX: "auto" }}>
       {/* <Box className={styles.search}>
