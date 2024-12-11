@@ -1,0 +1,92 @@
+.table {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.table th,
+.table td {
+  border: 1px solid #cccccc;
+  padding: 15px;
+}
+
+.search {
+  width: 100%;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* .input {
+  background-color: white;
+  color: #000;
+  padding: 10px;
+  border: none;
+  border-bottom: 2px solid #cccccc;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.input:focus {
+  outline: none;
+  border-bottom: 2px solid #63c2c7;
+  
+} */
+
+.input {
+  background-color: white;
+  color: #000;
+  padding: 10px;
+  border: 2px solid #cccccc;
+  min-width: 200px;
+  /* width: 100%; */
+  margin-bottom: 20px;
+  border-radius: 5px;
+}
+
+.input:focus {
+  outline: none;
+  border: 2px solid #63c2c7;
+  box-shadow: 0 0 2px #63c2c7;
+  transition: all 0.3s ease;
+}
+
+/* Checkbox Container */
+.checkboxContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Hidden default checkbox */
+.checkboxContainer input[type="checkbox"] {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  outline: none;
+  cursor: pointer;
+  background-color: white;
+  transition: all 0.3s ease;
+}
+
+/* Checkbox Checked State */
+.checkboxContainer input[type="checkbox"]:checked {
+  background-color: #63c2c7;
+  border-color: #63c2c7;
+  background-image: url("../assets/images/check-mark.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+/* Hover Effect */
+.checkboxContainer input[type="checkbox"]:hover {
+  border-color: #888;
+}
+
+/* Focus State */
+.checkboxContainer input[type="checkbox"]:focus {
+  box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+}
