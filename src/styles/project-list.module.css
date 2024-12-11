@@ -17,6 +17,10 @@
   gap: 4px;
 }
 
+.actions{
+  display: flex;
+  gap: 10px;
+}
 /* .input {
   background-color: white;
   color: #000;

@@ -8,9 +8,10 @@ import {
   useReactTable,
 } from "@tanstack/react-table";
 import styles from "../../../styles/project-list.module.css";
-import { Box, Button } from "@mui/material";
+import { Box, Button, Divider, IconButton } from "@mui/material";
 import Image from "next/image";
 import { defaultData } from "./defaultData";
+import { icons } from "@/app/lib/constants";
 
 const ProjectListTable = () => {
   const [data, _setData] = React.useState(() => [...defaultData]);
@@ -94,6 +95,60 @@ const ProjectListTable = () => {
     columnHelper.accessor("progress", {
       header: "Profile Progress",
       // footer: (info) => info.column.id,
+    }),
+    columnHelper.display({
+      id: "action",
+      header: ({ table }) => {
+        // const selectedRowsArray = table
+        //   .getSelectedRowModel()
+        //   .rows.map((row) => row.original);
+        // setSelectedRows(selectedRowsArray);
+        // console.log(table);
+        // console.log(table.getState().rowSelection);
+        // console.log(table.getSelectedRowModel().rows);
+        return <div className={styles.checkboxContainer}>Actions</div>;
+      },
+      cell: ({ row }) => {
+        // console.log(row);
+        // console.log(row.getIsSelected());
+        return (
+          <div className={styles.actions}>
+            <div>
+              <IconButton
+                variant="contained"
+                onClick={() => alert("Edit")}
+                size="small"
+                style={{ color: "#479ba4" }}
+              >
+                {icons.view}
+              </IconButton>
+            </div>
+            <Divider orientation="vertical" flexItem />
+
+            <div>
+              <IconButton
+                variant="contained"
+                onClick={() => alert("Edit")}
+                size="small"
+                style={{ color: "#479ba4" }}
+              >
+                {icons.edit}
+              </IconButton>
+            </div>
+            <Divider orientation="vertical" flexItem />
+            <div style={{ color: "#479ba4" }}>
+              <IconButton
+                variant="contained"
+                onClick={() => alert("Edit")}
+                size="small"
+                style={{ color: "#479ba4" }}
+              >
+                {icons.delete}
+              </IconButton>
+            </div>
+          </div>
+        );
+      },
     }),
   ];
 
