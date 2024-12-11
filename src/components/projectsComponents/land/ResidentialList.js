@@ -158,12 +158,13 @@ const ResidentialList = ({ setShowDetails, setShowTypeOfLand }) => {
               },
               "& .MuiTab-root": {
                 color: "black", // Default tab text color
-                fontWeight: 600, // Set the font weight
+                fontWeight: 500, // Set the font weight
                 fontSize: "14px", // Set the font size
                 textTransform: "none", // Optional: Prevent uppercase transformation
               },
               "& .Mui-selected": {
                 color: "#479ba4 !important", // Change the color of the selected tab text
+                fontWeight: 600,
               },
             }}
           >
