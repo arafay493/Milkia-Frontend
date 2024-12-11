@@ -19,7 +19,7 @@ const ProjectListTable = () => {
   const [selectedRows, setSelectedRows] = useState([]);
   const [pagination, setPagination] = useState({
     pageIndex: 0, //initial page index
-    pageSize: 10, //default page size
+    pageSize: 5, //default page size
   });
   const columnHelper = createColumnHelper();
 
@@ -179,16 +179,23 @@ const ProjectListTable = () => {
         <input className={styles.input} />
       </Box> */}
       <Box className={styles.search}>
-        <select className={styles.input}>
-          <option value="">All</option>
-          <option value="status">Status</option>
-          <option value="age">Age</option>
-          <option value="progress">Progress</option>
+        <select
+          value={table.getState().pagination.pageSize}
+          onChange={(e) => {
+            table.setPageSize(Number(e.target.value));
+          }}
+          className={styles.input}
+        >
+          {[10, 20, 30, 40, 50].map((pageSize) => (
+            <option key={pageSize} value={pageSize}>
+              {pageSize}
+            </option>
+          ))}
         </select>
         <input className={styles.input} placeholder="Search..." />
       </Box>
       <table className={styles.table}>
-        <thead>
+        <thead style={{ backgroundColor: "#63c2c7" }}>
           {table.getHeaderGroups().map((headerGroup) => (
             <tr key={headerGroup.id}>
               {headerGroup.headers.map((header) => (

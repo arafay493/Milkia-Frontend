@@ -28,10 +28,13 @@ const cardData = [
       assetPaths.landResidentials,
       assetPaths.landCommercial,
     ],
-    title: "Residential",
+    title: "Gulbery Tower",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed doeiusmod tempor incididunt ut labore et dolore magna aliqua.",
     type: "plot",
+    rooms: 3,
+    bathrooms: 2,
+    area: "5x7"
   },
   {
     id: 2,
@@ -42,7 +45,7 @@ const cardData = [
       assetPaths.landResidentials,
       assetPaths.landCommercial,
     ],
-    title: "Commercial",
+    title: "Saima Apartments",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed doeiusmod tempor incididunt ut labore et dolore magna aliqua.",
     type: "plot",
