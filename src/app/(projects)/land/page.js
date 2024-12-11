@@ -3,13 +3,14 @@ import LandCard from "@/components/projectsComponents/land/Card";
 import CommercialList from "@/components/projectsComponents/land/CommercialList";
 import IndustrialList from "@/components/projectsComponents/land/IndustrialList";
 import ResidentialList from "@/components/projectsComponents/land/ResidentialList";
+import { assetPaths } from "@/paths/path";
 import { Stack, Typography } from "@mui/material";
 import React, { useState } from "react";
 
 const Land = () => {
-  const [showDetails, setShowDetails] = useState(false);
+  const [showDetails, setShowDetails] = useState(true);
   const [showTypeOfLand, setShowTypeOfLand] = useState({
-    residential: false,
+    residential: true,
     commercial: false,
     industrial: false,
   });
@@ -21,8 +22,8 @@ const Land = () => {
     <Stack
       height={"80vh"}
       direction={"column"}
-      alignContent={"center"}
-      justifyContent={"center"}
+      // alignContent={"center"}
+      // justifyContent={"center"}
       gap={5}
     >
       {!showDetails && (
