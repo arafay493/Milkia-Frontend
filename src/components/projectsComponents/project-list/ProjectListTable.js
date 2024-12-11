@@ -4,44 +4,22 @@ import {
   createColumnHelper,
   flexRender,
   getCoreRowModel,
+  getPaginationRowModel,
   useReactTable,
 } from "@tanstack/react-table";
 import styles from "../../../styles/project-list.module.css";
-import { Box } from "@mui/material";
+import { Box, Button } from "@mui/material";
 import Image from "next/image";
-const defaultData = [
-  {
-    firstName: "tanner",
-    lastName: "linsley",
-    age: 24,
-    visits: 100,
-    status: "In Relationship",
-    progress: 50,
-  },
-  {
-    firstName: "tandy",
-    lastName: "miller",
-    age: 40,
-    visits: 40,
-    status: "Single",
-    progress: 80,
-  },
-  {
-    firstName: "joe",
-    lastName: "dirte",
-    age: 45,
-    visits: 20,
-    status: "Complicated",
-    progress: 10,
-  },
-];
+import { defaultData } from "./defaultData";
 
 const ProjectListTable = () => {
   const [data, _setData] = React.useState(() => [...defaultData]);
   const rerender = React.useReducer(() => ({}), {})[1];
   const [selectedRows, setSelectedRows] = useState([]);
-  console.log(selectedRows);
-
+  const [pagination, setPagination] = useState({
+    pageIndex: 0, //initial page index
+    pageSize: 10, //default page size
+  });
   const columnHelper = createColumnHelper();
 
   const columns = [
@@ -123,7 +101,14 @@ const ProjectListTable = () => {
     data,
     columns,
     getCoreRowModel: getCoreRowModel(),
+    getPaginationRowModel: getPaginationRowModel(),
+    state: {
+      //...
+      pagination,
+    },
+    onPaginationChange: setPagination,
   });
+  // console.log(table);
   // Watch for changes in the row selection state
   useEffect(() => {
     const selectedRowsArray = table
@@ -192,6 +177,24 @@ const ProjectListTable = () => {
           ))}
         </tfoot> */}
       </table>
+      <Box className={styles.pagination} style={{ marginTop: "10px" }}>
+        <Button
+          onClick={() => table.previousPage()}
+          disabled={!table.getCanPreviousPage()}
+        >
+          Previous
+        </Button>
+        <span>
+          Page {table.getState().pagination.pageIndex + 1} of{" "}
+          {table.getPageCount()}
+        </span>
+        <Button
+          onClick={() => table.nextPage()}
+          disabled={!table.getCanNextPage()}
+        >
+          Next
+        </Button>
+      </Box>
     </Box>
   );
 };
