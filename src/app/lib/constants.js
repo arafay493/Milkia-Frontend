@@ -1,6 +1,7 @@
 import { FaRegEdit } from "react-icons/fa";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import { FaRegEye } from "react-icons/fa";
+import { FaRegHeart } from "react-icons/fa";
 
 export const colors = {
   primary: "#007bff",
@@ -21,6 +22,7 @@ export const icons = {
   view: <FaRegEye />,
   edit: <FaRegEdit />,
   delete: <RiDeleteBin6Line />,
+  heart: <FaRegHeart />,
   // delete: "fas fa-trash",
   // search: "fas fa-search",
   // close: "fas fa-times",

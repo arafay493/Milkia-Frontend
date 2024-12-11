@@ -1,9 +1,11 @@
 import { assetPaths } from "@/paths/path";
 import {
+  Button,
   Card,
   CardActionArea,
   CardContent,
   CardMedia,
+  IconButton,
   Typography,
 } from "@mui/material";
 import { Stack } from "@mui/system";
@@ -13,6 +15,8 @@ import PropTypes from "prop-types";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Box from "@mui/material/Box";
+import { icons } from "@/app/lib/constants";
+import styles from "../../../styles/land.module.css";
 
 const cardData = [
   {
@@ -90,6 +94,7 @@ function a11yProps(index) {
 
 const ResidentialList = ({ setShowDetails, setShowTypeOfLand }) => {
   const [value, setValue] = React.useState(0);
+  const [fullPlotDetails, setFullPlotDetails] = React.useState(false);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -117,13 +122,35 @@ const ResidentialList = ({ setShowDetails, setShowTypeOfLand }) => {
               style={{ borderRadius: "5px" }}
             />
           </CardMedia>
-          <CardContent sx={{ textAlign: "center" }}>
-            <Typography gutterBottom variant="h5" component="div">
-              {card.title}
-            </Typography>
+          <CardContent>
+            <Box
+              display={"flex"}
+              justifyContent={"space-between"}
+              alignItems={"center"}
+              mb={2}
+            >
+              <Typography variant="h5" component="div">
+                {card.title}
+              </Typography>
+              <Box>
+                <IconButton>{icons.heart}</IconButton>
+              </Box>
+            </Box>
             <Typography variant="body2" sx={{ color: "text.secondary" }}>
               {card.description}
             </Typography>
+            <Box
+              sx={{
+                borderTop: "1px solid lightgray",
+                marginTop: "10px",
+                paddingTop: "10px",
+                textAlign: "center",
+              }}
+            >
+              <Button variant="contained" className={styles.button}>
+                View Details
+              </Button>
+            </Box>
           </CardContent>
         </CardActionArea>
       </Card>
@@ -173,45 +200,19 @@ const ResidentialList = ({ setShowDetails, setShowTypeOfLand }) => {
             <Tab label="Villas" {...a11yProps(2)} />
           </Tabs>
         </Box>
-        <CustomTabPanel value={value} index={0}>
-          <Stack
-            direction={"row"}
-            flexWrap={"wrap"}
-            // justifyContent={"center"}
-            alignItems={"center"}
-            gap={2}
-            // sx={{marginBottom: "70px"}}
-            marginBottom={20}
-          >
-            {filteredList}
-          </Stack>
-        </CustomTabPanel>
-        <CustomTabPanel value={value} index={1}>
-          <Stack
-            direction={"row"}
-            flexWrap={"wrap"}
-            // justifyContent={"center"}
-            alignItems={"center"}
-            gap={2}
-            // sx={{marginBottom: "70px"}}
-            marginBottom={20}
-          >
-            {filteredList}
-          </Stack>
-        </CustomTabPanel>
-        <CustomTabPanel value={value} index={2}>
-          <Stack
-            direction={"row"}
-            flexWrap={"wrap"}
-            // justifyContent={"center"}
-            alignItems={"center"}
-            gap={2}
-            // sx={{marginBottom: "70px"}}
-            marginBottom={20}
-          >
-            {filteredList}
-          </Stack>
-        </CustomTabPanel>
+        {cardData.map((element, index) => (
+          <CustomTabPanel key={index} value={value} index={index}>
+            <Stack
+              direction={"row"}
+              flexWrap={"wrap"}
+              alignItems={"center"}
+              gap={2}
+              marginBottom={20}
+            >
+              {filteredList}
+            </Stack>
+          </CustomTabPanel>
+        ))}
       </Box>
     </Card>
   );
