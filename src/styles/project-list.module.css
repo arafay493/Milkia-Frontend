@@ -10,6 +10,7 @@
   padding: 15px;
   text-align: center;
   width: max-content;
+  border: none;
 }
 .table tr:nth-child(even) {
   background-color: #f2f2f2; /* Even rows ka background color */
@@ -17,6 +18,7 @@
 
 .table thead tr {
   background-color: #63c2c7;
+  color: #ffff;
 }
 
 .search {
@@ -66,6 +68,10 @@
   transition: all 0.3s ease;
 }
 
+.input option:hover option {
+  background-color: #63c2c7;
+}
+
 /* Checkbox Container */
 .checkboxContainer {
   display: flex;
@@ -88,7 +94,7 @@
 
 /* Checkbox Checked State */
 .checkboxContainer input[type="checkbox"]:checked {
-  background-color: #63c2c7;
+  /* background-color: #63c2c7; */
   border-color: #63c2c7;
   background-image: url("../assets/images/check-mark.png");
   background-repeat: no-repeat;

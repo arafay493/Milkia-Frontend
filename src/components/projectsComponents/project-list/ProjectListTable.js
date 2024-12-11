@@ -70,6 +70,7 @@ const ProjectListTable = () => {
       cell: (info) => info.getValue(),
     }),
     columnHelper.accessor("firstName", {
+      header: "First Name",
       cell: (info) => info.getValue(),
       // footer: (info) => info.column.id,
     }),
@@ -186,7 +187,7 @@ const ProjectListTable = () => {
           }}
           className={styles.input}
         >
-          {[10, 20, 30, 40, 50].map((pageSize) => (
+          {[5, 10, 20, 30, 40, 50].map((pageSize) => (
             <option key={pageSize} value={pageSize}>
               {pageSize}
             </option>
