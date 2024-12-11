@@ -4,6 +4,7 @@ import {
   createColumnHelper,
   flexRender,
   getCoreRowModel,
+  getFilteredRowModel,
   getPaginationRowModel,
   useReactTable,
 } from "@tanstack/react-table";
@@ -21,6 +22,7 @@ const ProjectListTable = () => {
     pageIndex: 0, //initial page index
     pageSize: 5, //default page size
   });
+  const [globalFilter, setGlobalFilter] = useState([]);
   const columnHelper = createColumnHelper();
 
   const columns = [
@@ -158,11 +160,14 @@ const ProjectListTable = () => {
     columns,
     getCoreRowModel: getCoreRowModel(),
     getPaginationRowModel: getPaginationRowModel(),
+    getFilteredRowModel: getFilteredRowModel(),
     state: {
       //...
+      globalFilter,
       pagination,
     },
     onPaginationChange: setPagination,
+    onGlobalFilterChange: setGlobalFilter,
   });
   // console.log(table);
   // Watch for changes in the row selection state
@@ -193,7 +198,11 @@ const ProjectListTable = () => {
             </option>
           ))}
         </select>
-        <input className={styles.input} placeholder="Search..." />
+        <input
+          className={styles.input}
+          onChange={(e) => table.setGlobalFilter(String(e.target.value))}
+          placeholder="Search..."
+        />
       </Box>
       <table className={styles.table}>
         <thead style={{ backgroundColor: "#63c2c7" }}>
