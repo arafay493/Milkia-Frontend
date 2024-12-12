@@ -2,6 +2,15 @@
 import React from "react";
 import TanStackTable from "@/components/TanStackTable/TanStackTable";
 import { createProjectListColumns } from "@/columns/projectListColumns";
+import { useRouter } from "next/navigation";
+import { defaultData } from "./defaultData";
+
+const AddProjectButton = () => {
+  const router = useRouter();
+  return (
+    <button onClick={() => router.push("/add-project")}>Add Project</button>
+  );
+};
 
 const ProjectListTable = () => {
   // Define the functions to handle actions
@@ -23,7 +32,13 @@ const ProjectListTable = () => {
     onEdit: handleEdit,
     onDelete: handleDelete,
   });
-  return <TanStackTable columns={columns} />;
+  return (
+    <TanStackTable
+      columns={columns}
+      TopButton={<AddProjectButton />}
+      data={defaultData}
+    />
+  );
 };
 
 export default ProjectListTable;

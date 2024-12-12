@@ -22,6 +22,24 @@
   color: #ffff;
 }
 
+.topbar{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.topbar button{
+  background-color: #63c2c7;
+  color: #ffff;
+  border: none;
+  cursor: pointer;
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: 700;
+  width: max-content;
+  border-radius: 5px;
+}
+
 .search {
   width: 100%;
   /* padding: 10px; */

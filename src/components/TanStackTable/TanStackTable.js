@@ -1,5 +1,5 @@
 import React, { useEffect, useReducer, useState } from "react";
-import { defaultData } from "../projectsComponents/project-list/defaultData";
+// import { defaultData } from "../projectsComponents/project-list/defaultData";
 import {
   createColumnHelper,
   flexRender,
@@ -10,11 +10,17 @@ import {
 } from "@tanstack/react-table";
 // import styles from "../../styles/project-list.module.css"
 import styles from "../../styles/tanstack-table.module.css";
-import { Box, Button, Divider, IconButton } from "@mui/material";
+import {
+  Box,
+  Button,
+  Divider,
+  IconButton,
+  TablePagination,
+} from "@mui/material";
 import { icons } from "@/app/lib/constants";
 
-const TanStackTable = ({ columns }) => {
-  const [data, _setData] = useState(() => [...defaultData]);
+const TanStackTable = ({ data , columns, TopButton }) => {
+  // const [data, _setData] = useState(() => [...defaultData]);
   const rerender = useReducer(() => ({}), {})[1];
   const [selectedRows, setSelectedRows] = useState([]);
   const [pagination, setPagination] = useState({
@@ -181,25 +187,28 @@ const TanStackTable = ({ columns }) => {
         
         <input className={styles.input} />
       </Box> */}
-      <Box className={styles.search}>
-        <select
-          value={table.getState().pagination.pageSize}
-          onChange={(e) => {
-            table.setPageSize(Number(e.target.value));
-          }}
-          className={styles.input}
-        >
-          {[5, 10, 20, 30, 40, 50].map((pageSize) => (
-            <option key={pageSize} value={pageSize}>
-              {pageSize}
-            </option>
-          ))}
-        </select>
-        <input
-          className={styles.input}
-          onChange={(e) => table.setGlobalFilter(String(e.target.value))}
-          placeholder="Search..."
-        />
+      <Box className = {styles.topbar}>
+        <Box className={styles.search}>
+          <select
+            value={table.getState().pagination.pageSize}
+            onChange={(e) => {
+              table.setPageSize(Number(e.target.value));
+            }}
+            className={styles.input}
+          >
+            {[5, 10, 20, 30, 40, 50].map((pageSize) => (
+              <option key={pageSize} value={pageSize}>
+                {pageSize}
+              </option>
+            ))}
+          </select>
+          <input
+            className={styles.input}
+            onChange={(e) => table.setGlobalFilter(String(e.target.value))}
+            placeholder="Search..."
+          />
+        </Box>
+        <Box>{TopButton}</Box>
       </Box>
       <table className={styles.table}>
         <thead style={{ backgroundColor: "#63c2c7" }}>
