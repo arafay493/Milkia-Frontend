@@ -3,7 +3,7 @@ import React from "react";
 import TanStackTable from "@/components/TanStackTable/TanStackTable";
 import { createProjectListColumns } from "@/columns/projectListColumns";
 import { useRouter } from "next/navigation";
-import { defaultData } from "./defaultData";
+import { projectListData } from "@/data/projectListData";
 
 const AddProjectButton = () => {
   const router = useRouter();
@@ -36,7 +36,7 @@ const ProjectListTable = () => {
     <TanStackTable
       columns={columns}
       TopButton={<AddProjectButton />}
-      data={defaultData}
+      data={projectListData}
     />
   );
 };
