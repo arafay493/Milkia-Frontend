@@ -30,8 +30,15 @@ const cardData = [
       assetPaths.landCommercial,
     ],
     title: "Gulbery Tower",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed doeiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    description: `Malir Luxuria – 2 is one of the smart structures positioned in Malir.
+          This agreement comprises ground in addition to 6 stories including
+          vehicle leaving and devoted bottoms for a shop. It’ll likewise
+          accentuate a slice-edge frame. It has been planned with worldwide
+          security principles. A special local area idea offers an extravagant
+          climate in a fully coordinated way of life. GFS builders and inventors
+          are offering introductory amenities to their buyers which include
+          hospitals, schools, shopping corners, parks, mosques, fitness/
+          gymnasiums, obstructed communities CCTV monitoring, etc.`,
     type: "plot",
     rooms: 3,
     bathrooms: 2,
@@ -50,6 +57,9 @@ const cardData = [
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed doeiusmod tempor incididunt ut labore et dolore magna aliqua.",
     type: "plot",
+    rooms: 2,
+    bathrooms: 1,
+    area: "4x6",
   },
   {
     id: 3,
@@ -64,6 +74,9 @@ const cardData = [
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed doeiusmod tempor incididunt ut labore et dolore magna aliqua.",
     type: "villas",
+    rooms: 5,
+    bathrooms: 3,
+    area: "7x12",
   },
 ];
 
@@ -147,7 +160,9 @@ const ResidentialList = ({ setShowDetails, setShowTypeOfLand }) => {
               </Box>
             </Box>
             <Typography variant="body2" sx={{ color: "text.secondary" }}>
-              {card.description}
+              {card.description.length > 100
+                ? `${card.description.slice(0, 100)}...`
+                : card.description}
             </Typography>
             <Box
               sx={{
@@ -188,6 +203,7 @@ const ResidentialList = ({ setShowDetails, setShowTypeOfLand }) => {
               <Tabs
                 value={value}
                 onChange={handleChange}
+                // variant="fullWidth"
                 aria-label="basic tabs example"
                 sx={{
                   "& .MuiTabs-indicator": {

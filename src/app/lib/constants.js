@@ -2,6 +2,9 @@ import { FaRegEdit } from "react-icons/fa";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import { FaRegEye } from "react-icons/fa";
 import { FaRegHeart } from "react-icons/fa";
+import { MdOutlineBed } from "react-icons/md";
+import { BiBath } from "react-icons/bi";
+import { RxRulerSquare } from "react-icons/rx";
 
 export const colors = {
   primary: "#007bff",
@@ -23,6 +26,9 @@ export const icons = {
   edit: <FaRegEdit />,
   delete: <RiDeleteBin6Line />,
   heart: <FaRegHeart />,
+  bed: <MdOutlineBed />,
+  bathroom: <BiBath />,
+  square: <RxRulerSquare />
   // delete: "fas fa-trash",
   // search: "fas fa-search",
   // close: "fas fa-times",
