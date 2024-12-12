@@ -32,25 +32,29 @@ export const createBuildingListColumns = ({ onView, onEdit, onDelete }) => [
       </div>
     ),
   }),
-  columnHelper.accessor("id", {
-    header: "ID",
+  columnHelper.accessor("buildingId", {
+    header: "Building ID",
     cell: (info) => info.getValue(),
   }),
-  columnHelper.accessor("firstName", {
-    header: "First Name",
+  columnHelper.accessor("projectName", {
+    header: "Project Name",
     cell: (info) => info.getValue(),
   }),
-  columnHelper.accessor((row) => row.lastName, {
-    id: "lastName",
+  columnHelper.accessor("buildingName", {
+    header: "Building Name",
     cell: (info) => <i>{info.getValue()}</i>,
-    header: () => <span>Last Name</span>,
   }),
-  columnHelper.accessor("age", {
-    header: () => "Age",
+  columnHelper.accessor("totalFloor", {
+    header: "Total Floors",
     cell: (info) => info.renderValue(),
   }),
-  columnHelper.accessor("status", {
-    header: "Status",
+  columnHelper.accessor("launchDate", {
+    header: "Launch Date",
+    cell: (info) => info.getValue(),
+  }),
+  columnHelper.accessor("possessionDate", {
+    header: "Possession Date",
+    cell: (info) => info.getValue(),
   }),
   columnHelper.display({
     id: "action",
