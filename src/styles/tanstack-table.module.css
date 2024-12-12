@@ -2,6 +2,7 @@
   width: 100%;
   overflow-x: auto;
   border-radius: 10px;
+  user-select: none;
 }
 
 .table th,
@@ -110,4 +111,31 @@
 /* Focus State */
 .checkboxContainer input[type="checkbox"]:focus {
   box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+}
+
+.pagination{
+  margin-top: 10px;
+  display: flex;
+  justify-content: end;
+}
+
+.pagination button{
+  /* background-color: #63c2c7; */
+  border: 2px solid transparent !important;
+  color: #63c2c7;
+  /* color: white; */
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  margin-right: 5px;
+  transition: all 0.5s ease;
+}
+
+.pagination button:hover{
+  border: 2px solid #63c2c7 !important;
+}
+
+.pageNumber{
+  user-select: none;
+  margin: 0 10px;
 }

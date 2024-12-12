@@ -9,11 +9,11 @@ import {
   useReactTable,
 } from "@tanstack/react-table";
 // import styles from "../../styles/project-list.module.css"
-import styles from "../../styles/tanstack-table.module.css"
+import styles from "../../styles/tanstack-table.module.css";
 import { Box, Button, Divider, IconButton } from "@mui/material";
 import { icons } from "@/app/lib/constants";
 
-const TanStackTable = ({columns}) => {
+const TanStackTable = ({ columns }) => {
   const [data, _setData] = useState(() => [...defaultData]);
   const rerender = useReducer(() => ({}), {})[1];
   const [selectedRows, setSelectedRows] = useState([]);
@@ -24,135 +24,135 @@ const TanStackTable = ({columns}) => {
   const [globalFilter, setGlobalFilter] = useState([]);
   const columnHelper = createColumnHelper();
 
-//   const columns = [
-//     // Checkbox Column
-//     columnHelper.display({
-//       id: "select",
-//       header: ({ table }) => {
-//         // const selectedRowsArray = table
-//         //   .getSelectedRowModel()
-//         //   .rows.map((row) => row.original);
-//         // setSelectedRows(selectedRowsArray);
-//         // console.log(table);
-//         // console.log(table.getState().rowSelection);
-//         // console.log(table.getSelectedRowModel().rows);
-//         return (
-//           <div className={styles.checkboxContainer}>
-//             <input
-//               type="checkbox"
-//               checked={table.getIsAllRowsSelected()}
-//               onChange={(e) =>
-//                 e.target.checked
-//                   ? table.toggleAllRowsSelected(true)
-//                   : table.toggleAllRowsSelected(false)
-//               }
-//             />
-//           </div>
-//         );
-//       },
-//       cell: ({ row }) => {
-//         // console.log(row);
-//         // console.log(row.getIsSelected());
-//         return (
-//           <div className={styles.checkboxContainer}>
-//             <input
-//               type="checkbox"
-//               checked={row.getIsSelected()}
-//               onChange={() => row.toggleSelected()}
-//               className={styles.checkboxContainer}
-//             />
-//           </div>
-//         );
-//       },
-//     }),
-//     // ID Column
-//     columnHelper.accessor("id", {
-//       header: "ID",
-//       cell: (info) => info.getValue(),
-//     }),
-//     columnHelper.accessor("firstName", {
-//       header: "First Name",
-//       cell: (info) => info.getValue(),
-//       // footer: (info) => info.column.id,
-//     }),
-//     columnHelper.accessor((row) => row.lastName, {
-//       id: "lastName",
-//       cell: (info) => <i>{info.getValue()}</i>,
-//       header: () => <span>Last Name</span>,
-//       // footer: (info) => info.column.id,
-//     }),
-//     columnHelper.accessor("age", {
-//       header: () => "Age",
-//       cell: (info) => info.renderValue(),
-//       // footer: (info) => info.column.id,
-//     }),
-//     columnHelper.accessor("visits", {
-//       header: () => <span>Visits</span>,
-//       // footer: (info) => info.column.id,
-//     }),
-//     columnHelper.accessor("status", {
-//       header: "Status",
-//       // footer: (info) => info.column.id,
-//     }),
-//     columnHelper.accessor("progress", {
-//       header: "Profile Progress",
-//       // footer: (info) => info.column.id,
-//     }),
-//     columnHelper.display({
-//       id: "action",
-//       header: ({ table }) => {
-//         // const selectedRowsArray = table
-//         //   .getSelectedRowModel()
-//         //   .rows.map((row) => row.original);
-//         // setSelectedRows(selectedRowsArray);
-//         // console.log(table);
-//         // console.log(table.getState().rowSelection);
-//         // console.log(table.getSelectedRowModel().rows);
-//         return <div className={styles.checkboxContainer}>Actions</div>;
-//       },
-//       cell: ({ row }) => {
-//         // console.log(row);
-//         // console.log(row.getIsSelected());
-//         return (
-//           <div className={styles.actions}>
-//             <div>
-//               <IconButton
-//                 variant="contained"
-//                 onClick={() => alert("Edit")}
-//                 size="small"
-//                 style={{ color: "#479ba4" }}
-//               >
-//                 {icons.view}
-//               </IconButton>
-//             </div>
-//             <Divider orientation="vertical" flexItem />
+  //   const columns = [
+  //     // Checkbox Column
+  //     columnHelper.display({
+  //       id: "select",
+  //       header: ({ table }) => {
+  //         // const selectedRowsArray = table
+  //         //   .getSelectedRowModel()
+  //         //   .rows.map((row) => row.original);
+  //         // setSelectedRows(selectedRowsArray);
+  //         // console.log(table);
+  //         // console.log(table.getState().rowSelection);
+  //         // console.log(table.getSelectedRowModel().rows);
+  //         return (
+  //           <div className={styles.checkboxContainer}>
+  //             <input
+  //               type="checkbox"
+  //               checked={table.getIsAllRowsSelected()}
+  //               onChange={(e) =>
+  //                 e.target.checked
+  //                   ? table.toggleAllRowsSelected(true)
+  //                   : table.toggleAllRowsSelected(false)
+  //               }
+  //             />
+  //           </div>
+  //         );
+  //       },
+  //       cell: ({ row }) => {
+  //         // console.log(row);
+  //         // console.log(row.getIsSelected());
+  //         return (
+  //           <div className={styles.checkboxContainer}>
+  //             <input
+  //               type="checkbox"
+  //               checked={row.getIsSelected()}
+  //               onChange={() => row.toggleSelected()}
+  //               className={styles.checkboxContainer}
+  //             />
+  //           </div>
+  //         );
+  //       },
+  //     }),
+  //     // ID Column
+  //     columnHelper.accessor("id", {
+  //       header: "ID",
+  //       cell: (info) => info.getValue(),
+  //     }),
+  //     columnHelper.accessor("firstName", {
+  //       header: "First Name",
+  //       cell: (info) => info.getValue(),
+  //       // footer: (info) => info.column.id,
+  //     }),
+  //     columnHelper.accessor((row) => row.lastName, {
+  //       id: "lastName",
+  //       cell: (info) => <i>{info.getValue()}</i>,
+  //       header: () => <span>Last Name</span>,
+  //       // footer: (info) => info.column.id,
+  //     }),
+  //     columnHelper.accessor("age", {
+  //       header: () => "Age",
+  //       cell: (info) => info.renderValue(),
+  //       // footer: (info) => info.column.id,
+  //     }),
+  //     columnHelper.accessor("visits", {
+  //       header: () => <span>Visits</span>,
+  //       // footer: (info) => info.column.id,
+  //     }),
+  //     columnHelper.accessor("status", {
+  //       header: "Status",
+  //       // footer: (info) => info.column.id,
+  //     }),
+  //     columnHelper.accessor("progress", {
+  //       header: "Profile Progress",
+  //       // footer: (info) => info.column.id,
+  //     }),
+  //     columnHelper.display({
+  //       id: "action",
+  //       header: ({ table }) => {
+  //         // const selectedRowsArray = table
+  //         //   .getSelectedRowModel()
+  //         //   .rows.map((row) => row.original);
+  //         // setSelectedRows(selectedRowsArray);
+  //         // console.log(table);
+  //         // console.log(table.getState().rowSelection);
+  //         // console.log(table.getSelectedRowModel().rows);
+  //         return <div className={styles.checkboxContainer}>Actions</div>;
+  //       },
+  //       cell: ({ row }) => {
+  //         // console.log(row);
+  //         // console.log(row.getIsSelected());
+  //         return (
+  //           <div className={styles.actions}>
+  //             <div>
+  //               <IconButton
+  //                 variant="contained"
+  //                 onClick={() => alert("Edit")}
+  //                 size="small"
+  //                 style={{ color: "#479ba4" }}
+  //               >
+  //                 {icons.view}
+  //               </IconButton>
+  //             </div>
+  //             <Divider orientation="vertical" flexItem />
 
-//             <div>
-//               <IconButton
-//                 variant="contained"
-//                 onClick={() => alert("Edit")}
-//                 size="small"
-//                 style={{ color: "#479ba4" }}
-//               >
-//                 {icons.edit}
-//               </IconButton>
-//             </div>
-//             <Divider orientation="vertical" flexItem />
-//             <div style={{ color: "#479ba4" }}>
-//               <IconButton
-//                 variant="contained"
-//                 onClick={() => alert("Edit")}
-//                 size="small"
-//                 style={{ color: "#479ba4" }}
-//               >
-//                 {icons.delete}
-//               </IconButton>
-//             </div>
-//           </div>
-//         );
-//       },
-//     }),
-//   ];
+  //             <div>
+  //               <IconButton
+  //                 variant="contained"
+  //                 onClick={() => alert("Edit")}
+  //                 size="small"
+  //                 style={{ color: "#479ba4" }}
+  //               >
+  //                 {icons.edit}
+  //               </IconButton>
+  //             </div>
+  //             <Divider orientation="vertical" flexItem />
+  //             <div style={{ color: "#479ba4" }}>
+  //               <IconButton
+  //                 variant="contained"
+  //                 onClick={() => alert("Edit")}
+  //                 size="small"
+  //                 style={{ color: "#479ba4" }}
+  //               >
+  //                 {icons.delete}
+  //               </IconButton>
+  //             </div>
+  //           </div>
+  //         );
+  //       },
+  //     }),
+  //   ];
 
   const table = useReactTable({
     data,
@@ -246,23 +246,25 @@ const TanStackTable = ({columns}) => {
           ))}
         </tfoot> */}
       </table>
-      <Box className={styles.pagination} style={{ marginTop: "10px" }}>
-        <Button
-          onClick={() => table.previousPage()}
-          disabled={!table.getCanPreviousPage()}
-        >
-          Previous
-        </Button>
-        <span>
-          Page {table.getState().pagination.pageIndex + 1} of{" "}
-          {table.getPageCount()}
-        </span>
-        <Button
-          onClick={() => table.nextPage()}
-          disabled={!table.getCanNextPage()}
-        >
-          Next
-        </Button>
+      <Box className={styles.pagination}>
+        <Box>
+          <Button
+            onClick={() => table.previousPage()}
+            disabled={!table.getCanPreviousPage()}
+          >
+            Previous
+          </Button>
+          <span className={styles.pageNumber}>
+            Page {table.getState().pagination.pageIndex + 1} of{" "}
+            {table.getPageCount()}
+          </span>
+          <Button
+            onClick={() => table.nextPage()}
+            disabled={!table.getCanNextPage()}
+          >
+            Next
+          </Button>
+        </Box>
       </Box>
     </Box>
   );
