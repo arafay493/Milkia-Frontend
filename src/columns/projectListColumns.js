@@ -174,25 +174,25 @@ export const createProjectListColumns = ({ onView, onEdit, onDelete }) => [
       </div>
     ),
   }),
-  columnHelper.accessor("id", {
-    header: "ID",
+  columnHelper.accessor("projectId", {
+    header: "Project ID",
     cell: (info) => info.getValue(),
   }),
-  columnHelper.accessor("firstName", {
-    header: "First Name",
+  columnHelper.accessor("projectName", {
+    header: "Project Name",
     cell: (info) => info.getValue(),
   }),
-  columnHelper.accessor((row) => row.lastName, {
-    id: "lastName",
-    cell: (info) => <i>{info.getValue()}</i>,
-    header: () => <span>Last Name</span>,
+  columnHelper.accessor("location", {
+    header: "Location",
+    cell: (info) => info.getValue(),
   }),
-  columnHelper.accessor("age", {
-    header: () => "Age",
+  columnHelper.accessor("city", {
+    header: "City",
+    cell: (info) => info.getValue(),
+  }),
+  columnHelper.accessor("properties", {
+    header: "Properties",
     cell: (info) => info.renderValue(),
-  }),
-  columnHelper.accessor("status", {
-    header: "Status",
   }),
   columnHelper.display({
     id: "action",
