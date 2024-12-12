@@ -69,9 +69,10 @@
   transition: all 0.3s ease;
 }
 
-.input option:hover option {
-  background-color: #63c2c7;
-}
+/* .input option {
+  color: pink !important;
+  background-color: #63c2c7 !important;
+} */
 
 /* Checkbox Container */
 .checkboxContainer {
@@ -113,13 +114,13 @@
   box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
 }
 
-.pagination{
+.pagination {
   margin-top: 10px;
   display: flex;
   justify-content: end;
 }
 
-.pagination button{
+.pagination button {
   /* background-color: #63c2c7; */
   border: 2px solid transparent !important;
   color: #63c2c7;
@@ -131,11 +132,11 @@
   transition: all 0.5s ease;
 }
 
-.pagination button:hover{
+.pagination button:hover {
   border: 2px solid #63c2c7 !important;
 }
 
-.pageNumber{
+.pageNumber {
   user-select: none;
   margin: 0 10px;
 }
