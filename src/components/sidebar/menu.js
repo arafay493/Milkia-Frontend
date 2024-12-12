@@ -14,7 +14,8 @@ export const menuList = [
     items: [
       { label: "Project", path: "/project-list" },
       { label: "Land", path: "/land" },
-      { label: "Building", path: "/add-building" },
+      // { label: "Building", path: "/add-building" },
+      { label: "Building", path: "/building-list" },
       { label: "Floor Plan", path: "/add-floor-plan" },
       { label: "Add Properties", path: "/add-properties" },
       // { label: "Add Building", path: "/add-building" },
