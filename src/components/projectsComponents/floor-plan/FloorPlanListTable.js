@@ -1,4 +1,5 @@
 import { createBuildingListColumns } from "@/columns/buildingListColumns";
+import { createFloorPlanListColumns } from "@/columns/floorPlanListColumns";
 import TanStackTable from "@/components/TanStackTable/TanStackTable";
 import { floorPlanListData } from "@/data/floorPlanListData";
 import { useRouter } from "next/navigation";
@@ -25,7 +26,7 @@ const FloorPlanListTable = () => {
   };
 
   // Generate columns with the functions
-  const columns = createBuildingListColumns({
+  const columns = createFloorPlanListColumns({
     onView: handleView,
     onEdit: handleEdit,
     onDelete: handleDelete,
