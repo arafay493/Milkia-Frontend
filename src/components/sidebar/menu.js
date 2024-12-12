@@ -10,13 +10,13 @@ export const menuList = [
   {
     id: 1,
     title: "Projects",
-    icon: <IoIosSpeedometer />,
+    icon: <FaChartLine />,
     items: [
       { label: "Project", path: "/project-list" },
       { label: "Land", path: "/land" },
       // { label: "Building", path: "/add-building" },
       { label: "Building", path: "/building-list" },
-      { label: "Floor Plan", path: "/add-floor-plan" },
+      { label: "Floor Plan", path: "/floor-plan" },
       { label: "Add Properties", path: "/add-properties" },
       // { label: "Add Building", path: "/add-building" },
       // { label: "Add Project", path: "/add-project" },
@@ -26,7 +26,7 @@ export const menuList = [
   {
     id: 2,
     title: "Builders and Developers",
-    icon: <PiUsersThreeFill />,
+    icon: <IoIosSpeedometer />,
     items: [
       { label: "Add New Builder", path: "/add-new-builder" },
       { label: "List of Builders", path: "/list-of-builders" },
@@ -35,7 +35,7 @@ export const menuList = [
   {
     id: 3,
     title: "Dealers (Partners)",
-    icon: <FaChartLine />,
+    icon: <PiUsersThreeFill />,
     items: [
       { label: "Add New Dealer", path: "/add-new-dealer" },
       { label: "Registered Clients", path: "/registered-clients" },

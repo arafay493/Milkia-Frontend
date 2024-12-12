@@ -1,9 +1,6 @@
-import React from 'react'
-
+import React from "react";
 const AddFloorPlan = () => {
-  return (
-    <div>AddFloorPlan</div>
-  )
-}
+  return <div>AddFloorPlan Page</div>;
+};
 
-export default AddFloorPlan
+export default AddFloorPlan;
