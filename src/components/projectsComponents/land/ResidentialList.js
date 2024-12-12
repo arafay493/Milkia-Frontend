@@ -17,6 +17,7 @@ import Tab from "@mui/material/Tab";
 import Box from "@mui/material/Box";
 import { icons } from "@/app/lib/constants";
 import styles from "../../../styles/land.module.css";
+import ResidentialCardDetails from "./ResidentialCardDetails";
 
 const cardData = [
   {
@@ -34,7 +35,7 @@ const cardData = [
     type: "plot",
     rooms: 3,
     bathrooms: 2,
-    area: "5x7"
+    area: "5x7",
   },
   {
     id: 2,
@@ -97,6 +98,7 @@ function a11yProps(index) {
 
 const ResidentialList = ({ setShowDetails, setShowTypeOfLand }) => {
   const [value, setValue] = React.useState(0);
+  const [viewDetails, setViewDetails] = React.useState(false);
   const [fullPlotDetails, setFullPlotDetails] = React.useState(false);
 
   const handleChange = (event, newValue) => {
@@ -105,6 +107,9 @@ const ResidentialList = ({ setShowDetails, setShowTypeOfLand }) => {
   const handleClick = () => {
     setShowDetails(true);
     // setShowTypeOfLand("residential");
+  };
+  const handleViewCardDetails = () => {
+    setViewDetails(!viewDetails);
   };
   const filteredList = cardData
     .filter((card) => {
@@ -150,7 +155,11 @@ const ResidentialList = ({ setShowDetails, setShowTypeOfLand }) => {
                 textAlign: "center",
               }}
             >
-              <Button variant="contained" className={styles.button}>
+              <Button
+                variant="contained"
+                className={styles.button}
+                onClick={handleViewCardDetails}
+              >
                 View Details
               </Button>
             </Box>
@@ -159,65 +168,70 @@ const ResidentialList = ({ setShowDetails, setShowTypeOfLand }) => {
       </Card>
     ));
   return (
-    <Card
-      sx={{
-        padding: "50px",
-        minHeight: "85vh",
-        overflow: "auto",
-        marginBottom: "400px",
-      }}
-    >
-      <Typography variant="h4" mb={4}>
-        Residential
-      </Typography>
-      <Box sx={{ width: "100%" }}>
-        <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
-          <Tabs
-            value={value}
-            onChange={handleChange}
-            aria-label="basic tabs example"
-            sx={{
-              "& .MuiTabs-indicator": {
-                backgroundColor: "#479ba4", // Change the indicator color
-              },
-              "& .MuiButtonBase-root": {
-                color: "black", // Default button text color
-                fontWeight: 600, // Set the font weight
-                fontSize: "14px", // Set the font size
-                textTransform: "none", // Optional: Prevent uppercase transformation
-              },
-              "& .MuiTab-root": {
-                color: "black", // Default tab text color
-                fontWeight: 500, // Set the font weight
-                fontSize: "14px", // Set the font size
-                textTransform: "none", // Optional: Prevent uppercase transformation
-              },
-              "& .Mui-selected": {
-                color: "#479ba4 !important", // Change the color of the selected tab text
-                fontWeight: 600,
-              },
-            }}
-          >
-            <Tab label="All" {...a11yProps(0)} />
-            <Tab label="Plots" {...a11yProps(1)} />
-            <Tab label="Villas" {...a11yProps(2)} />
-          </Tabs>
-        </Box>
-        {cardData.map((element, index) => (
-          <CustomTabPanel key={index} value={value} index={index}>
-            <Stack
-              direction={"row"}
-              flexWrap={"wrap"}
-              alignItems={"center"}
-              gap={2}
-              marginBottom={20}
-            >
-              {filteredList}
-            </Stack>
-          </CustomTabPanel>
-        ))}
-      </Box>
-    </Card>
+    <>
+      {!viewDetails && (
+        <Card
+          sx={{
+            padding: "50px",
+            minHeight: "85vh",
+            overflow: "auto",
+            marginBottom: "400px",
+          }}
+        >
+          <Typography variant="h4" mb={4}>
+            Residential
+          </Typography>
+          <Box sx={{ width: "100%" }}>
+            <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
+              <Tabs
+                value={value}
+                onChange={handleChange}
+                aria-label="basic tabs example"
+                sx={{
+                  "& .MuiTabs-indicator": {
+                    backgroundColor: "#479ba4", // Change the indicator color
+                  },
+                  "& .MuiButtonBase-root": {
+                    color: "black", // Default button text color
+                    fontWeight: 600, // Set the font weight
+                    fontSize: "14px", // Set the font size
+                    textTransform: "none", // Optional: Prevent uppercase transformation
+                  },
+                  "& .MuiTab-root": {
+                    color: "black", // Default tab text color
+                    fontWeight: 500, // Set the font weight
+                    fontSize: "14px", // Set the font size
+                    textTransform: "none", // Optional: Prevent uppercase transformation
+                  },
+                  "& .Mui-selected": {
+                    color: "#479ba4 !important", // Change the color of the selected tab text
+                    fontWeight: 600,
+                  },
+                }}
+              >
+                <Tab label="All" {...a11yProps(0)} />
+                <Tab label="Plots" {...a11yProps(1)} />
+                <Tab label="Villas" {...a11yProps(2)} />
+              </Tabs>
+            </Box>
+            {cardData.map((element, index) => (
+              <CustomTabPanel key={index} value={value} index={index}>
+                <Stack
+                  direction={"row"}
+                  flexWrap={"wrap"}
+                  alignItems={"center"}
+                  gap={2}
+                  marginBottom={20}
+                >
+                  {filteredList}
+                </Stack>
+              </CustomTabPanel>
+            ))}
+          </Box>
+        </Card>
+      )}
+      {viewDetails && <ResidentialCardDetails />}
+    </>
   );
 };
 
