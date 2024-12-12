@@ -99,6 +99,7 @@ function a11yProps(index) {
 const ResidentialList = ({ setShowDetails, setShowTypeOfLand }) => {
   const [value, setValue] = React.useState(0);
   const [viewDetails, setViewDetails] = React.useState(false);
+  const [cardDetails, setSingleCardDetails] = React.useState(null);
   const [fullPlotDetails, setFullPlotDetails] = React.useState(false);
 
   const handleChange = (event, newValue) => {
@@ -108,8 +109,9 @@ const ResidentialList = ({ setShowDetails, setShowTypeOfLand }) => {
     setShowDetails(true);
     // setShowTypeOfLand("residential");
   };
-  const handleViewCardDetails = () => {
+  const handleViewCardDetails = (card) => {
     setViewDetails(!viewDetails);
+    setSingleCardDetails(card);
   };
   const filteredList = cardData
     .filter((card) => {
@@ -158,7 +160,7 @@ const ResidentialList = ({ setShowDetails, setShowTypeOfLand }) => {
               <Button
                 variant="contained"
                 className={styles.button}
-                onClick={handleViewCardDetails}
+                onClick={() => handleViewCardDetails(card)}
               >
                 View Details
               </Button>
@@ -220,6 +222,7 @@ const ResidentialList = ({ setShowDetails, setShowTypeOfLand }) => {
                   direction={"row"}
                   flexWrap={"wrap"}
                   alignItems={"center"}
+                  justifyContent={"center"}
                   gap={2}
                   marginBottom={20}
                 >
@@ -230,7 +233,7 @@ const ResidentialList = ({ setShowDetails, setShowTypeOfLand }) => {
           </Box>
         </Card>
       )}
-      {viewDetails && <ResidentialCardDetails />}
+      {viewDetails && <ResidentialCardDetails cardDetails={cardDetails} />}
     </>
   );
 };
