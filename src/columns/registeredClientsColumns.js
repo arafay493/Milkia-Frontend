@@ -56,26 +56,36 @@ export const createRegisteredClientsListColumns = ({ onView, onEdit, onDelete })
     header: "For",
     cell: (info) => info.getValue(),
   }),
-  columnHelper.accessor("source", {
-    header: "Source",
+  columnHelper.accessor((row) => `${row.source} / ${row.employee}`, {
+    id: "sourceEmployee",
+    header: "Source / Employee",
     cell: (info) => info.getValue(),
   }),
-  columnHelper.accessor("employee", {
-    header: "Employee",
-    cell: (info) => info.getValue(),
-  }),
+//   columnHelper.accessor("source", {
+//     header: "Source",
+//     cell: (info) => info.getValue(),
+//   }),
+//   columnHelper.accessor("employee", {
+//     header: "Employee",
+//     cell: (info) => info.getValue(),
+//   }),
   columnHelper.accessor("remarks", {
     header: "Remarks",
     cell: (info) => info.getValue(),
   }),
-  columnHelper.accessor("leadDate", {
+  columnHelper.accessor((row) => `${row.leadDate} ${row.leadTime}`, {
+    id: "lead",
     header: "Lead Date",
     cell: (info) => info.getValue(),
   }),
-  columnHelper.accessor("leadTime", {
-    header: "Lead Time",
-    cell: (info) => info.getValue(),
-  }),
+//   columnHelper.accessor("leadDate", {
+//     header: "Lead Date",
+//     cell: (info) => info.getValue(),
+//   }),
+//   columnHelper.accessor("leadTime", {
+//     header: "Lead Time",
+//     cell: (info) => info.getValue(),
+//   }),
   columnHelper.display({
     id: "action",
     header: "Actions",
