@@ -1,11 +1,15 @@
 import { createColumnHelper } from "@tanstack/react-table";
 import styles from "../styles/tanstack-table.module.css";
-import { Divider, IconButton } from "@mui/material";
+import { Button, Divider, IconButton, MenuItem, Select } from "@mui/material";
 import { icons } from "@/app/lib/constants";
 
 const columnHelper = createColumnHelper();
 
-export const createRegisteredClientsListColumns = ({ onView, onEdit, onDelete }) => [
+export const createRegisteredClientsListColumns = ({
+  onView,
+  onEdit,
+  onDelete,
+}) => [
   columnHelper.display({
     id: "select",
     header: ({ table }) => (
@@ -61,14 +65,14 @@ export const createRegisteredClientsListColumns = ({ onView, onEdit, onDelete })
     header: "Source / Employee",
     cell: (info) => info.getValue(),
   }),
-//   columnHelper.accessor("source", {
-//     header: "Source",
-//     cell: (info) => info.getValue(),
-//   }),
-//   columnHelper.accessor("employee", {
-//     header: "Employee",
-//     cell: (info) => info.getValue(),
-//   }),
+  //   columnHelper.accessor("source", {
+  //     header: "Source",
+  //     cell: (info) => info.getValue(),
+  //   }),
+  //   columnHelper.accessor("employee", {
+  //     header: "Employee",
+  //     cell: (info) => info.getValue(),
+  //   }),
   columnHelper.accessor("remarks", {
     header: "Remarks",
     cell: (info) => info.getValue(),
@@ -78,46 +82,86 @@ export const createRegisteredClientsListColumns = ({ onView, onEdit, onDelete })
     header: "Lead Date",
     cell: (info) => info.getValue(),
   }),
-//   columnHelper.accessor("leadDate", {
-//     header: "Lead Date",
-//     cell: (info) => info.getValue(),
-//   }),
-//   columnHelper.accessor("leadTime", {
-//     header: "Lead Time",
-//     cell: (info) => info.getValue(),
-//   }),
+  //   columnHelper.accessor("leadDate", {
+  //     header: "Lead Date",
+  //     cell: (info) => info.getValue(),
+  //   }),
+  //   columnHelper.accessor("leadTime", {
+  //     header: "Lead Time",
+  //     cell: (info) => info.getValue(),
+  //   }),
   columnHelper.display({
     id: "action",
     header: "Actions",
     cell: ({ row }) => (
-      <div className={styles.actions}>
-        <IconButton
-          variant="contained"
-          onClick={() => onView(row.original)}
-          size="small"
-          style={{ color: "#479ba4" }}
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          gap: "10px",
+        }}
+      >
+        <div>Attempt | Assign</div>
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            gap: "10px",
+          }}
         >
-          {icons.view}
-        </IconButton>
-        <Divider orientation="vertical" flexItem />
-        <IconButton
-          variant="contained"
-          onClick={() => onEdit(row.original)}
-          size="small"
-          style={{ color: "#479ba4" }}
-        >
-          {icons.edit}
-        </IconButton>
-        <Divider orientation="vertical" flexItem />
-        <IconButton
-          variant="contained"
-          onClick={() => onDelete(row.original)}
-          size="small"
-          style={{ color: "#479ba4" }}
-        >
-          {icons.delete}
-        </IconButton>
+          <select
+            //   value={selectedEmployee}
+            //   onChange={(e) => setSelectedEmployee(e.target.value)}
+            className={styles.input}
+            displayEmpty
+            style={{ mixWidth: "50px", display: "inline-block" }}
+          >
+            <option value="" disabled>
+              Select Employee
+            </option>
+            <option value="47 | abc Lead Manager">47 | abc Lead Manager</option>
+            <option value="48 | xyz Lead Manager">48 | xyz Lead Manager</option>
+          </select>
+          <Button
+            variant="contained"
+            //   color="primary"
+            style={{ backgroundColor: "#479ba4" }}
+            //   onClick={handleAssign}
+            //   disabled={!selectedEmployee} // Disable until an employee is selected
+          >
+            Assign
+          </Button>
+        </div>
       </div>
+      //   <div className={styles.actions}>
+      //     <IconButton
+      //       variant="contained"
+      //       onClick={() => onView(row.original)}
+      //       size="small"
+      //       style={{ color: "#479ba4" }}
+      //     >
+      //       {icons.view}
+      //     </IconButton>
+      //     <Divider orientation="vertical" flexItem />
+      //     <IconButton
+      //       variant="contained"
+      //       onClick={() => onEdit(row.original)}
+      //       size="small"
+      //       style={{ color: "#479ba4" }}
+      //     >
+      //       {icons.edit}
+      //     </IconButton>
+      //     <Divider orientation="vertical" flexItem />
+      //     <IconButton
+      //       variant="contained"
+      //       onClick={() => onDelete(row.original)}
+      //       size="small"
+      //       style={{ color: "#479ba4" }}
+      //     >
+      //       {icons.delete}
+      //     </IconButton>
+      //   </div>
     ),
   }),
 ];
