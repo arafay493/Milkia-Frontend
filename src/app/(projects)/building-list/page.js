@@ -6,7 +6,7 @@ import React from "react";
 const AddBuilding = () => {
   return (
     <Card>
-      <CardContent style={{overflowX: 'auto'}}>
+      <CardContent>
         <Typography variant="h3" fontSize={20} mb={2} fontWeight={600}>
           Building List
         </Typography>
