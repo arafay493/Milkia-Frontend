@@ -126,7 +126,7 @@ export const createRegisteredClientsListColumns = ({
           <Button
             variant="contained"
             //   color="primary"
-            style={{ backgroundColor: "#479ba4", height: "41px" , minWidth: "50px" }}
+            style={{ backgroundColor: "#63c2c7", height: "35px" , width: "150px" }}
             //   onClick={handleAssign}
             //   disabled={!selectedEmployee} // Disable until an employee is selected
           >
