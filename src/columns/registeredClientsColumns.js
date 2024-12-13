@@ -113,11 +113,11 @@ export const createRegisteredClientsListColumns = ({
           <select
             //   value={selectedEmployee}
             //   onChange={(e) => setSelectedEmployee(e.target.value)}
-            className={styles.input}
+            className={styles.select}
             displayEmpty
             style={{ mixWidth: "50px", display: "inline-block" }}
           >
-            <option value="" disabled>
+            <option value="" disabled hidden>
               Select Employee
             </option>
             <option value="47 | abc Lead Manager">47 | abc Lead Manager</option>
@@ -126,7 +126,7 @@ export const createRegisteredClientsListColumns = ({
           <Button
             variant="contained"
             //   color="primary"
-            style={{ backgroundColor: "#479ba4" }}
+            style={{ backgroundColor: "#479ba4", height: "41px" , minWidth: "50px" }}
             //   onClick={handleAssign}
             //   disabled={!selectedEmployee} // Disable until an employee is selected
           >

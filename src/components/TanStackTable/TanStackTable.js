@@ -182,7 +182,7 @@ const TanStackTable = ({ data, columns, TopButton }) => {
     setSelectedRows(selectedRowsArray);
   }, [table.getState().rowSelection]);
   return (
-    <Box className="p-2" style={{ overflowX: "auto" }}>
+    <Box className="p-2">
       {/* <Box className={styles.search}>
         
         <input className={styles.input} />
@@ -210,35 +210,36 @@ const TanStackTable = ({ data, columns, TopButton }) => {
         </Box>
         {TopButton && <Box>{TopButton}</Box>}
       </Box>
-      <table className={styles.table}>
-        <thead style={{ backgroundColor: "#63c2c7" }}>
-          {table.getHeaderGroups().map((headerGroup) => (
-            <tr key={headerGroup.id}>
-              {headerGroup.headers.map((header) => (
-                <th key={header.id}>
-                  {header.isPlaceholder
-                    ? null
-                    : flexRender(
-                        header.column.columnDef.header,
-                        header.getContext()
-                      )}
-                </th>
-              ))}
-            </tr>
-          ))}
-        </thead>
-        <tbody>
-          {table.getRowModel().rows.map((row) => (
-            <tr key={row.id}>
-              {row.getVisibleCells().map((cell) => (
-                <td key={cell.id}>
-                  {flexRender(cell.column.columnDef.cell, cell.getContext())}
-                </td>
-              ))}
-            </tr>
-          ))}
-        </tbody>
-        {/* <tfoot>
+      <Box style={{ overflowX: "auto" }}>
+        <table className={styles.table}>
+          <thead style={{ backgroundColor: "#63c2c7" }}>
+            {table.getHeaderGroups().map((headerGroup) => (
+              <tr key={headerGroup.id}>
+                {headerGroup.headers.map((header) => (
+                  <th key={header.id}>
+                    {header.isPlaceholder
+                      ? null
+                      : flexRender(
+                          header.column.columnDef.header,
+                          header.getContext()
+                        )}
+                  </th>
+                ))}
+              </tr>
+            ))}
+          </thead>
+          <tbody>
+            {table.getRowModel().rows.map((row) => (
+              <tr key={row.id}>
+                {row.getVisibleCells().map((cell) => (
+                  <td key={cell.id}>
+                    {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                  </td>
+                ))}
+              </tr>
+            ))}
+          </tbody>
+          {/* <tfoot>
           {table.getFooterGroups().map((footerGroup) => (
             <tr key={footerGroup.id}>
               {footerGroup.headers.map((header) => (
@@ -254,7 +255,8 @@ const TanStackTable = ({ data, columns, TopButton }) => {
             </tr>
           ))}
         </tfoot> */}
-      </table>
+        </table>
+      </Box>
       <Box className={styles.pagination}>
         <Box>
           <Button

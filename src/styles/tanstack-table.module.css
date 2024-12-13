@@ -87,6 +87,24 @@
   transition: all 0.3s ease;
 }
 
+.select {
+  background-color: white;
+  color: #000;
+  padding: 10px;
+  border: 2px solid #cccccc;
+  /* min-width: 200px; */
+  /* width: 100%; */
+  /* margin-bottom: 10px; */
+  border-radius: 5px;
+}
+
+.select:focus {
+  outline: none;
+  border: 2px solid #63c2c7;
+  box-shadow: 0 0 2px #63c2c7;
+  transition: all 0.3s ease;
+}
+
 /* .input option {
   color: pink !important;
   background-color: #63c2c7 !important;
