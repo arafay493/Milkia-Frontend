@@ -1,6 +1,6 @@
-import { createBuildingListColumns } from "@/columns/buildingListColumns";
+import { createRegisteredClientsListColumns } from "@/columns/registeredClientsColumns";
 import TanStackTable from "@/components/TanStackTable/TanStackTable";
-import { buildingListData } from "@/data/buildingListData";
+import { registeredClientsListData } from "@/data/registeredClientsData";
 import { useRouter } from "next/navigation";
 import React from "react";
 
@@ -26,7 +26,7 @@ const RegisteredClientsListTable = () => {
   };
 
   // Generate columns with the functions
-  const columns = createBuildingListColumns({
+  const columns = createRegisteredClientsListColumns({
     onView: handleView,
     onEdit: handleEdit,
     onDelete: handleDelete,
@@ -35,7 +35,7 @@ const RegisteredClientsListTable = () => {
     <TanStackTable
       columns={columns}
       //   TopButton={<AddBuildingButton />}
-      data={buildingListData}
+      data={registeredClientsListData}
     />
   );
 };
