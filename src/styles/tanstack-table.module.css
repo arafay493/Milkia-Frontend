@@ -3,12 +3,13 @@
   overflow-x: auto;
   border-radius: 10px;
   user-select: none;
+  font-size: 12px !important;
 }
 
 .table th,
 .table td {
   border: 1px solid #cccccc;
-  padding: 15px;
+  padding: 10px 10px;
   text-align: center;
   width: max-content;
   border: none;
@@ -120,8 +121,8 @@
 /* Hidden default checkbox */
 .checkboxContainer input[type="checkbox"] {
   appearance: none;
-  width: 20px;
-  height: 20px;
+  width: 15px;
+  height: 15px;
   border: 2px solid #ccc;
   border-radius: 4px;
   outline: none;

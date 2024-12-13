@@ -366,8 +366,10 @@ const AddPropertiesForm = () => {
               value={formik.values.source}
             >
               <option value="">Select Source</option>
-              <option value="source1">Source 1</option>
-              <option value="source2">Source 2</option>
+              <option value="DI1">DI1</option>
+              <option value="DI2">DI2</option>
+              <option value="DI3">DI3</option>
+              <option value="DI4">DI4</option>
             </select>
           </Grid>
 
@@ -512,8 +514,9 @@ const AddPropertiesForm = () => {
               value={formik.values.property}
             >
               <option value="">Villas</option>
-              <option value="type1">Property1</option>
-              <option value="type2">Property2</option>
+              <option value="villas">Villas</option>
+              <option value="apartments">Apartments</option>
+              <option value="plots">Plots</option>
             </select>
           </Grid>
           <Grid

@@ -35,7 +35,7 @@ import "./globals.css";
 import { Toaster } from "react-hot-toast";
 import SidebarMenu from "@/components/sidebar/SidebarMenu";
 
-const drawerWidth = 300;
+const drawerWidth = 250;
 
 const Main = styled("main", { shouldForwardProp: (prop) => prop !== "open" })(
   ({ theme, open }) => ({
@@ -190,7 +190,7 @@ const AppLayout = (props) => {
         PaperProps={{
           sx: {
             // backgroundColor: theme.colors._F4F4F4,
-            backgroundColor: "#5fc9d7",
+            backgroundColor: "#63c2c7",
             // backgroundImage: `url(${assetPaths.SideBar})`,
             // backgroundSize: 'contain',
             // backgroundRepeat: 'no-repeat',
