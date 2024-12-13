@@ -19,7 +19,7 @@ import {
 } from "@mui/material";
 import { icons } from "@/app/lib/constants";
 
-const TanStackTable = ({ data , columns, TopButton }) => {
+const TanStackTable = ({ data, columns, TopButton }) => {
   // const [data, _setData] = useState(() => [...defaultData]);
   const rerender = useReducer(() => ({}), {})[1];
   const [selectedRows, setSelectedRows] = useState([]);
@@ -187,7 +187,7 @@ const TanStackTable = ({ data , columns, TopButton }) => {
         
         <input className={styles.input} />
       </Box> */}
-      <Box className = {styles.topbar}>
+      <Box className={styles.topbar}>
         <Box className={styles.search}>
           <select
             value={table.getState().pagination.pageSize}
@@ -208,7 +208,7 @@ const TanStackTable = ({ data , columns, TopButton }) => {
             placeholder="Search..."
           />
         </Box>
-        <Box>{TopButton}</Box>
+        {TopButton && <Box>{TopButton}</Box>}
       </Box>
       <table className={styles.table}>
         <thead style={{ backgroundColor: "#63c2c7" }}>
