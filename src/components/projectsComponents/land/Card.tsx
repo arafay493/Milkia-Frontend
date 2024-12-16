@@ -28,7 +28,7 @@ const LandCard = ({ handleShowDetails, setShowTypeOfLand, setShowDetails }) => {
           onClick={() => handleShowDetails(card.title.toLowerCase())}
         >
           <CardActionArea>
-            <CardMedia width={"100%"}>
+            <CardMedia sx={{ width: "100%" }}>
               <Image
                 src={card.imageSource}
                 alt="green iguana"

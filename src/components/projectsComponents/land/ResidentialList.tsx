@@ -136,7 +136,7 @@ const ResidentialList = ({ setShowDetails, setShowTypeOfLand }) => {
     .map((card) => (
       <Card sx={{ maxWidth: 345, padding: "10px" }} key={card.id}>
         <CardActionArea>
-          <CardMedia width={"100%"}>
+          <CardMedia sx={{width: "100%"}}>
             <Image
               src={card.images[0]}
               alt="green iguana"
