@@ -40,7 +40,7 @@ import { menuList } from "./menu";
 import Link from "next/link";
 import styles from "../../styles/sidebar.module.css";
 import { usePathname, useRouter } from "next/navigation";
-import { motion } from "motion/react";
+import { motion, HTMLMotionProps } from "motion/react";
 // import "../../styles/colors.css";
 // import Link from "next/link";
 
@@ -99,29 +99,30 @@ const SidebarMenu = () => {
             <div className={styles.title}>{menu.title}</div>
           </div>
           {activeMenu === menu.id && (
-            <motion.ul
-              initial={{ height: 0, opacity: 0 }}
-              animate={{ height: "auto", opacity: 1 }}
-              exit={{ height: 0, opacity: 0 }}
-              transition={{
-                duration: 0.3,
-                ease: "linear",
-              }}
-              className={styles.subMenu}
-            >
-              {menu.items.map((item, index) => (
-                <Link key={index} href={item.path} className={styles.link}>
-                  {console.log("item.path" , item.path)}
-                  <li
-                    className={`${styles.subMenuItem} ${
-                      pathname === item.path ? styles.active : ""
-                    }`}
-                  >
-                    {item.label}
-                  </li>
-                </Link>
-              ))}
-            </motion.ul>
+            <div className={styles.subMenu}>
+              <motion.ul
+                // className={styles.subMenu}
+                initial={{ height: 0, opacity: 0 }}
+                animate={{ height: "auto", opacity: 1 }}
+                exit={{ height: 0, opacity: 0 }}
+                transition={{
+                  duration: 0.3,
+                  ease: "linear",
+                }}
+              >
+                {menu.items.map((item, index) => (
+                  <Link key={index} href={item.path} className={styles.link}>
+                    <li
+                      className={`${styles.subMenuItem} ${
+                        pathname === item.path ? styles.active : ""
+                      }`}
+                    >
+                      {item.label}
+                    </li>
+                  </Link>
+                ))}
+              </motion.ul>
+            </div>
           )}
         </div>
       ))}

@@ -94,7 +94,7 @@
   font-weight: bold;
 }
 
-.subMenu {
+.subMenu ul {
   margin-top: 10px;
   margin-left: 20px;
   list-style: none;

@@ -5,8 +5,21 @@ import { BiBarChartSquare } from "react-icons/bi";
 import { MdOutlinePayments } from "react-icons/md";
 import { BsJournalBookmarkFill } from "react-icons/bs";
 import { IoMdSettings } from "react-icons/io";
+import { ReactNode } from "react";
 
-export const menuList = [
+interface MenuItem {
+  label: string;
+  path: string;
+}
+
+interface Menu {
+  id: number;
+  title: string;
+  icon: ReactNode; // Use ReactNode for components like FaChartLine
+  items: MenuItem[];
+}
+
+export const menuList: Menu[] = [
   {
     id: 1,
     title: "Projects",
