@@ -5,7 +5,7 @@ import styles from "../../../styles/add-project.module.css";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid2";
 
-const AddProjectForm = () => {
+const AddFloorPlanFrom = () => {
   const formik = useFormik({
     initialValues: {
       projectName: "",
@@ -156,7 +156,7 @@ const AddProjectForm = () => {
               id="description"
               name="description"
               placeholder="Description"
-              rows="4"
+              rows={5}
               onChange={formik.handleChange}
               value={formik.values.description}
             />
@@ -202,4 +202,4 @@ const AddProjectForm = () => {
   );
 };
 
-export default AddProjectForm;
+export default AddFloorPlanFrom;
