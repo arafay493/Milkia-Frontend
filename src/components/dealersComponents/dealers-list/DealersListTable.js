@@ -1,17 +1,17 @@
-import { createRegisteredClientsListColumns } from "@/columns/registeredClientsColumns";
+import { createDealersListColumns } from "@/columns/dealersListColumns";
 import TanStackTable from "@/components/TanStackTable/TanStackTable";
-import { registeredClientsListData } from "@/data/registeredClientsData";
+import { dealersListData } from "@/data/dealersListData";
 import { useRouter } from "next/navigation";
 import React from "react";
 
-const AddBuildingButton = () => {
+const AddDealerButton = () => {
   const router = useRouter();
   return (
-    <button onClick={() => router.push("/add-building")}>Add Building</button>
+    <button onClick={() => router.push("/add-new-dealer")}>Add Dealer</button>
   );
 };
 
-const RegisteredClientsListTable = () => {
+const DealersListTable = () => {
   // Define the functions to handle actions
   const handleView = (row) => {
     alert(`Viewing row: ${JSON.stringify(row)}`);
@@ -26,7 +26,7 @@ const RegisteredClientsListTable = () => {
   };
 
   // Generate columns with the functions
-  const columns = createRegisteredClientsListColumns({
+  const columns = createDealersListColumns({
     onView: handleView,
     onEdit: handleEdit,
     onDelete: handleDelete,
@@ -34,10 +34,10 @@ const RegisteredClientsListTable = () => {
   return (
     <TanStackTable
       columns={columns}
-      //   TopButton={<AddBuildingButton />}
-      data={registeredClientsListData}
+      TopButton={<AddDealerButton />}
+      data={dealersListData}
     />
   );
 };
 
-export default RegisteredClientsListTable;
+export default DealersListTable;

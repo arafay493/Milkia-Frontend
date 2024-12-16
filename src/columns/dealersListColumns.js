@@ -5,7 +5,7 @@ import { icons } from "@/app/lib/constants";
 
 const columnHelper = createColumnHelper();
 
-export const createRegisteredClientsListColumns = ({
+export const createDealersListColumns = ({
   onView,
   onEdit,
   onDelete,

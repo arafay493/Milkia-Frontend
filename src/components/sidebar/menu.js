@@ -37,8 +37,8 @@ export const menuList = [
     title: "Dealers (Partners)",
     icon: <PiUsersThreeFill />,
     items: [
-      { label: "Add New Dealer", path: "/add-new-dealer" },
-      { label: "Registered Clients", path: "/registered-clients" },
+      // { label: "Add New Dealer", path: "/add-new-dealer" },
+      { label: "Dealers", path: "/dealers-list" },
       { label: "Sales Person", path: "/sales-person" },
     ],
   },

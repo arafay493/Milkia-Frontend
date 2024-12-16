@@ -1,4 +1,4 @@
-export const registeredClientsListData = [
+export const dealersListData = [
   {
     personId: 1,
     leadName: "Subhan",

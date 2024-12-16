@@ -1,5 +1,5 @@
 "use client"
-import RegisteredClientsListTable from "@/components/dealersComponents/registered-clients/RegisteredClientsListTable";
+import DealersListTable from "@/components/dealersComponents/dealers-list/DealersListTable";
 import { Card, CardContent, Typography } from "@mui/material";
 import React from "react";
 
@@ -8,9 +8,9 @@ const RegisteredClients = () => {
     <Card>
       <CardContent>
         <Typography variant="h3" fontSize={20} mb={2} fontWeight={600}>
-          Registered Clients
+          Dealers List
         </Typography>
-        <RegisteredClientsListTable />
+        <DealersListTable />
       </CardContent>
     </Card>
   );
