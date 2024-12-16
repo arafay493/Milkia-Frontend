@@ -8,13 +8,13 @@ import { Stack, Typography } from "@mui/material";
 import React, { useState } from "react";
 
 const Land = () => {
-  const [showDetails, setShowDetails] = useState(false);
+  const [showDetails, setShowDetails] = useState<boolean>(false);
   const [showTypeOfLand, setShowTypeOfLand] = useState({
     residential: false,
     commercial: false,
     industrial: false,
   });
-  const handleShowDetails = (type) => {
+  const handleShowDetails = (type: any) => {
     setShowDetails(!showDetails);
     setShowTypeOfLand({ ...showTypeOfLand, [type]: !showTypeOfLand[type] });
   };

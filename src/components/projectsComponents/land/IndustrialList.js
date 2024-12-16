@@ -1,6 +1,6 @@
 import React from 'react'
 
-const IndustrialList = () => {
+const IndustrialList = ({ setShowDetails, setShowTypeOfLand }) => {
   return (
     <div>IndustrialList</div>
   )
