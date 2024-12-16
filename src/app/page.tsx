@@ -97,7 +97,7 @@ interface AppLayoutProps {
 //   )
 // }
 
-const AppLayout: React.FC<AppLayoutProps> = (props) => {
+const AppLayout = (props) => {
   const theme: any = useTheme();
   const drawerRef = React.useRef(null);
   const [open, setOpen] = useState(true);

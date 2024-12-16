@@ -23,13 +23,13 @@
   color: #ffff;
 }
 
-.topbar{
+.topbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.topbar button{
+.topbar button {
   background-color: #63c2c7;
   color: #ffff;
   border: none;
@@ -154,7 +154,7 @@
 .pagination {
   margin-top: 10px;
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
 }
 
 .pagination button {
