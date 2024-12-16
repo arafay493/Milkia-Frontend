@@ -35,30 +35,37 @@ import "./globals.css";
 import { Toaster } from "react-hot-toast";
 import SidebarMenu from "@/components/sidebar/SidebarMenu";
 
+//? Interfaces Start
+interface MainProps {
+  open?: boolean;
+  theme?: any;
+}
+//? Interfaces End
+
 const drawerWidth = 250;
 
-const Main = styled("main", { shouldForwardProp: (prop) => prop !== "open" })(
-  ({ theme, open }) => ({
-    flexGrow: 1,
-    padding: theme.spacing(3),
+const Main = styled("main", {
+  shouldForwardProp: (prop) => prop !== "open",
+})<MainProps>(({ theme, open }) => ({
+  flexGrow: 1,
+  padding: theme.spacing(3),
+  transition: theme.transitions.create("margin", {
+    easing: theme.transitions.easing.sharp,
+    duration: theme.transitions.duration.leavingScreen,
+  }),
+  marginLeft: `-${drawerWidth}px`,
+  ...(open && {
     transition: theme.transitions.create("margin", {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.leavingScreen,
+      easing: theme.transitions.easing.easeOut,
+      duration: theme.transitions.duration.enteringScreen,
     }),
-    marginLeft: `-${drawerWidth}px`,
-    ...(open && {
-      transition: theme.transitions.create("margin", {
-        easing: theme.transitions.easing.easeOut,
-        duration: theme.transitions.duration.enteringScreen,
-      }),
-      marginLeft: 0,
-    }),
-  })
-);
+    marginLeft: 0,
+  }),
+}));
 
 const AppBar = styled(MuiAppBar, {
   shouldForwardProp: (prop) => prop !== "open",
-})(({ theme, open }) => ({
+})<MainProps>(({ theme, open }) => ({
   transition: theme.transitions.create(["margin", "width"], {
     easing: theme.transitions.easing.sharp,
     duration: theme.transitions.duration.leavingScreen,
@@ -73,7 +80,7 @@ const AppBar = styled(MuiAppBar, {
   }),
 }));
 
-const DrawerHeader = styled("div")(({ theme }) => ({
+const DrawerHeader = styled("div")<MainProps>(({ theme }) => ({
   display: "flex",
   alignItems: "center",
   padding: theme.spacing(0, 1),
@@ -81,8 +88,17 @@ const DrawerHeader = styled("div")(({ theme }) => ({
   justifyContent: "space-between",
 }));
 
-const AppLayout = (props) => {
-  const theme = useTheme();
+interface AppLayoutProps {
+  children: React.ReactNode;
+}
+// const AppLayout: React.FC<AppLayoutProps> = () => {
+//   return (
+//     <div>AppLayouts</div>
+//   )
+// }
+
+const AppLayout: React.FC<AppLayoutProps> = (props) => {
+  const theme: any = useTheme();
   const drawerRef = React.useRef(null);
   const [open, setOpen] = useState(true);
   const [routes, setRoutes] = useState(appRoutes);
@@ -105,16 +121,13 @@ const AppLayout = (props) => {
   };
 
   const logOut = (screenData, routeIndex) => {
-    if (screenData?.label == "logout") {
+    if (screenData?.label === "logout") {
       localStorage.removeItem("AuthToken");
       localStorage.removeItem("RefreshToken");
-      // router.push("/"); // Changing routes...!
       localStorage.clear();
 
-      router.push("/").then(() => {
-        window.location.reload();
-      });
-      // window.location.reload();
+      router.push("/"); // Redirect to home
+      window.location.reload(); // Reload the page after navigating
     } else {
       let routesClone = [...routes];
       let targetData = { ...screenData };
