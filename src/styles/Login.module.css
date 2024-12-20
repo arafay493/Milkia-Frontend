@@ -88,6 +88,13 @@
 
 .inner_login_form_input input:focus {
   outline: none;
+  color: black !important;
+}
+
+.inner_login_form_input input:-webkit-autofill {
+  -webkit-text-fill-color: black; /* Text color */
+  -webkit-box-shadow: 0 0 0px 1000px white inset; /* Background color */
+  transition: background-color 5000s ease-in-out 0s;
 }
 
 .inner_login_form {
