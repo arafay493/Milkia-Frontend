@@ -20,6 +20,7 @@ const ProjectListTable = () => {
   const [editModal, setEditModal] = React.useState(false);
   const [deleteModal, setDeleteModal] = React.useState(false);
   const [rowData, setRowData] = React.useState(null);
+  console.log(rowData)
   // Define the functions to handle actions
   const handleView = (row) => {
     setViewModal(true);

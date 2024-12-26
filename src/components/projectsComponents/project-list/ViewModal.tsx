@@ -1,15 +1,24 @@
 import StaticInputs from "@/components/StaticInputs/StaticInputs";
 import React from "react";
 import {
-  Button,
-  Col,
   Modal,
   ModalBody,
-  ModalFooter,
   ModalHeader,
-  Row,
 } from "reactstrap";
-const ViewModal = ({ isOpen, toggle, row }) => {
+interface Details {
+  projectId: number;
+  projectName: string;
+  location: string;
+  city: string;
+  properties: number;
+}
+
+interface EditModalProps {
+  isOpen: boolean;
+  toggle: () => void;
+  row: Details;
+}
+const ViewModal: React.FC<EditModalProps> = ({ isOpen, toggle, row }) => {
   const { projectId, projectName, location, city, properties } = row;
   return (
     <Modal isOpen={isOpen} toggle={toggle} size="lg" zIndex={1200}>
