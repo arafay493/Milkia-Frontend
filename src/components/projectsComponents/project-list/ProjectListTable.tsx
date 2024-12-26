@@ -17,10 +17,13 @@ const ProjectListTable = () => {
   const [viewModal, setViewModal] = React.useState(false);
   const [editModal, setEditModal] = React.useState(false);
   const [deleteModal, setDeleteModal] = React.useState(false);
+  const [rowData, setRowData] = React.useState(null);
+  console.log(rowData)
   // Define the functions to handle actions
   const handleView = (row) => {
     setViewModal(true);
-    alert(`Viewing row: ${JSON.stringify(row)}`);
+    setRowData(row)
+    // alert(`Viewing row: ${JSON.stringify(row)}`);
   };
 
   const handleEdit = (row) => {
@@ -52,7 +55,7 @@ const ProjectListTable = () => {
         TopButton={<AddProjectButton />}
         data={projectListData}
       />
-      {viewModal && <ViewModal isOpen={viewModal} toggle = {handleCloseModal} />}
+      {rowData && <ViewModal isOpen={viewModal} toggle = {handleCloseModal} row = {rowData} />}
     </>
   );
 };

@@ -9,29 +9,28 @@ import {
   ModalHeader,
   Row,
 } from "reactstrap";
-const ViewModal = ({ isOpen , toggle }) => {
+const ViewModal = ({ isOpen, toggle, row }) => {
+  const { projectId, projectName, location, city, properties } = row;
   return (
     <Modal isOpen={isOpen} toggle={toggle} size="lg" zIndex={1200}>
       <ModalHeader toggle={toggle}>View Details</ModalHeader>
       <ModalBody>
-        {/* <StaticInputs
+        <StaticInputs
           labels={[
-            "Driver Name",
-            "Vehicle Id",
-            "Transfer Quantity",
-            "Created On",
-            "Updated On",
-            "Total COD",
+            "Project ID",
+            "Project Name",
+            "Location",
+            "City",
+            "Properties",
           ]}
           values={[
-            driverInfo?.driverName,
-            vehicleInfo?.vehicleRegNo,
-            tranferQuantity,
-            moment(createdOn).format("DD-MM-YYYY") || "NA",
-            moment(updatedOn).format("DD-MM-YYYY") || "NA",
-            totalCodCash || "NA",
+            projectId,
+            projectName,
+            location,
+            city,
+            properties,
           ]}
-        /> */}
+        />
         {/* {mappedData?.length > 0 && (
           <div className="table-responsive">
             <MaterialReactTable

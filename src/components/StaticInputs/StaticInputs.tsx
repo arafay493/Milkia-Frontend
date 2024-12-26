@@ -39,13 +39,13 @@ const StaticInputs: React.FC<StaticInputsProps> = ({ labels, values }) => {
                   height: "15px",
                 },
                 "& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline": {
-                  borderColor: "#0A74B9",
+                  borderColor: "#63C2C7",
                 },
                 "& .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline": {
-                  borderColor: "#0A74B9",
+                  borderColor: "#63C2C7",
                 },
                 "& .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline": {
-                  borderColor: "#0A74B9",
+                  borderColor: "#63C2C7",
                   borderWidth: 2,
                   width: "100%",
                 },
@@ -53,7 +53,7 @@ const StaticInputs: React.FC<StaticInputsProps> = ({ labels, values }) => {
                   color: "rgba(0, 0, 0, 0.8)",
                 },
                 "& .MuiInputLabel-root.Mui-focused": {
-                  color: "#0A74B9",
+                  color: "#63C2C7",
                 },
               }}
             />
