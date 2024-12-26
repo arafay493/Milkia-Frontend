@@ -56,7 +56,7 @@ const Content = ({ children }) => {
   const { authenticatedUser } = useSelector(({ authStates }) => authStates);
   console.log("authenticatedUser", authenticatedUser);
 
-  return authenticatedUser ? <AppLayout>{children}</AppLayout> : <Login />;
+  return !authenticatedUser ? <AppLayout>{children}</AppLayout> : <Login />;
 };
 
 export default RootLayout;

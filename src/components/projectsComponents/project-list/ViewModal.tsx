@@ -11,7 +11,7 @@ import {
 } from "reactstrap";
 const ViewModal = ({ isOpen , toggle }) => {
   return (
-    <Modal isOpen={isOpen} toggle={toggle} size="lg" zIndex={1000}>
+    <Modal isOpen={isOpen} toggle={toggle} size="lg" zIndex={1200}>
       <ModalHeader toggle={toggle}>View Details</ModalHeader>
       <ModalBody>
         {/* <StaticInputs
