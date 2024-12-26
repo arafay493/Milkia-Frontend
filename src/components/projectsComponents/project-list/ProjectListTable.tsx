@@ -5,6 +5,8 @@ import { createProjectListColumns } from "@/columns/projectListColumns";
 import { useRouter } from "next/navigation";
 import { projectListData } from "@/data/projectListData";
 import ViewModal from "./ViewModal";
+import EditModal from "./EditModal";
+import DeleteModal from "./DeleteModal";
 
 const AddProjectButton = () => {
   const router = useRouter();
@@ -18,7 +20,6 @@ const ProjectListTable = () => {
   const [editModal, setEditModal] = React.useState(false);
   const [deleteModal, setDeleteModal] = React.useState(false);
   const [rowData, setRowData] = React.useState(null);
-  console.log(rowData)
   // Define the functions to handle actions
   const handleView = (row) => {
     setViewModal(true);
@@ -28,12 +29,14 @@ const ProjectListTable = () => {
 
   const handleEdit = (row) => {
     setEditModal(true);
-    alert(`Editing row: ${JSON.stringify(row)}`);
+    setRowData(row)
+    // alert(`Editing row: ${JSON.stringify(row)}`);
   };
 
   const handleDelete = (row) => {
     setDeleteModal(true);
-    alert(`Deleting row: ${JSON.stringify(row)}`);
+    setRowData(row)
+    // alert(`Deleting row: ${JSON.stringify(row)}`);
   };
 
   const handleCloseModal = () => {
@@ -56,6 +59,8 @@ const ProjectListTable = () => {
         data={projectListData}
       />
       {rowData && <ViewModal isOpen={viewModal} toggle = {handleCloseModal} row = {rowData} />}
+      {rowData && <EditModal isOpen={editModal} toggle = {handleCloseModal} row = {rowData} />}
+      {rowData && <DeleteModal isOpen={deleteModal} toggle = {handleCloseModal} row = {rowData} />}
     </>
   );
 };
